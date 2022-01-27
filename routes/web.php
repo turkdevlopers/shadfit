@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -15,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/shadfit', [ServiceController::class,'shadfit'])->name('service.shadfit');
-
+Route::get('/', [ServiceController::class,'shadfit'])->name('service.shadfit');
+Route::get('/order', [OrderController::class , 'record_index']);
+Route::get('/test', function(){
+    return view('tmp');
+});
 Auth::routes();

@@ -1,0 +1,2 @@
+@yield('name')
+@yield('lastname')

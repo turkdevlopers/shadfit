@@ -5,6 +5,7 @@
 @section('description')
     ربات شادفیت
 @endsection
+
 @section('content')
 <div class="page-section">
     <div class="container">

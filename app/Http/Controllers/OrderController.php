@@ -20,7 +20,7 @@ class OrderController extends Controller
 
     public function record_index(Order $order, Plan $plan){
 
-        return view('service.order.shadfit',);
+        return view('Order');
     }
 
     /**

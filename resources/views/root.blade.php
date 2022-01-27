@@ -42,7 +42,7 @@
               <a class="nav-link" href="about.html">درباره ما</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="{{route('service')}}">سرویس ها</a>
+              <a class="nav-link" href="">سرویس ها</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="blog.html">وبلاگ</a>
