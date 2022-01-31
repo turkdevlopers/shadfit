@@ -17,7 +17,10 @@
 }
 .part2 {
     margin: 0 auto !important;
-    margin-right: 150px !important;
+    margin-right: 70px !important;
+    padding: 60px;
+    background-color: #f6f5fc;
+    border-radius: 10px;
 }
 .form-control:focus {
     box-shadow: 0 0 0 0.2rem #6b55f94d !important;
@@ -96,7 +99,12 @@ select option {
       81% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
       100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
   }
-  
-  
-
-
+  .errortxt {
+      display: block;
+      color: #ef5350;
+      font-weight: bold;
+      margin-top: 10px;
+  }
+  .flex-kon {
+      display: flex;
+  }
