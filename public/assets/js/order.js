@@ -1,3 +1,14 @@
+function just_persian(str){
+    var p = /^[\u0600-\u06FF\s]+$/;
+
+    if (!p.test(str)) {
+        return false;
+    }
+}
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 const form = document.querySelector("#form");
 
 const schoolName = document.querySelector("#schoolName");
@@ -8,12 +19,18 @@ const numberManager = document.querySelector("#numPerson");
 const userName = document.querySelector("#username");
 const password = document.querySelector("#password");
 const password2 = document.querySelector("#password2");
+const firstPrice = document.querySelector("#first-price");
+const addPrice = document.querySelector("#add-price");
+const lastPrice = document.querySelector("#last-price");
+const plans = document.querySelector("#plans");
+
+
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     checkInput();
 });
-const checkInput = () => {
+function checkInput() {
     const schoolNameValue = schoolName.value.trim();
     const numStudentValue = numStudent.value.trim();
     const schoolAddressValue = schoolAddress.value.trim();
@@ -31,7 +48,11 @@ const checkInput = () => {
         if (schoolName.value.length > 13) {
             setErorr(schoolName, 'نام مدرسه طوالانی هست');
         } else{
-            setSuccess(schoolName); 
+            if (just_persian(schoolNameValue)) {
+                setSuccess(schoolName);
+            }else{
+                setErorr(schoolName, 'نام مدرسه باید فارسی باشد');
+            }
         }
     }
     // Condition of number of student
@@ -47,7 +68,12 @@ const checkInput = () => {
             setErorr(schoolAddress, 'آدرس مدرسه را وارد کنید را وارد کنید');
         }else {
             if (schoolAddress.value.length > 20 && schoolAddress.value.length< 50) {
-                setSuccess(schoolAddress);
+                if (just_persian(schoolAddressValue)) {
+                    setSuccess(schoolAddress);
+                }else{
+                setErorr(schoolAddress, 'آدرس مدرسه باید فارسی باشد');
+                }
+                
             } else {
                 setErorr(schoolAddress, 'آدرس نه کوتاه باشد نه طولانی (حد وسط 20 تا 50 کلمه) ');
             }
@@ -93,6 +119,7 @@ const checkInput = () => {
 
     // Condition of UserName
     if (userNameValue === '') {
+        userName.focus();
         setErorr(userName, 'نام کاربری را وارد کنید');
     } else {
         if ((new RegExp("^[a-zA-Z0-9_]{5,}[a-zA-Z]+[0-9]*$")).test(userNameValue)) {
@@ -110,3 +137,16 @@ const setSuccess = (input) => {
     input.style.borderColor = "";
     input.nextElementSibling.innerHTML = "";
 }
+
+numStudent.addEventListener("keyup" , function(e){
+    var plan = plans.value * 1;
+    var num = numStudent.value * 1 ;
+    firstPrice.innerHTML = numberWithCommas(num * plan);
+    lastPrice.innerHTML = numberWithCommas((num * plan)+3000);
+});
+plans.addEventListener("change" , function(e){
+    var plan = plans.value * 1;
+    var num = numStudent.value * 1 ;
+    firstPrice.innerHTML = numberWithCommas(num * plan);
+    lastPrice.innerHTML = numberWithCommas((num * plan)+3000);
+});

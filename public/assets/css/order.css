@@ -17,7 +17,7 @@
 }
 .part2 {
     margin: 0 auto !important;
-    margin-right: 70px !important;
+    margin-right: 40px !important;
     padding: 60px;
     background-color: #f6f5fc;
     border-radius: 10px;
@@ -108,3 +108,59 @@ select option {
   .flex-kon {
       display: flex;
   }
+  /*----- responsive -----*/
+  @media only screen and (max-width: 1200px) {
+    .part2 {
+        padding: 30px;
+        width: 300px;
+          }
+          .part1 {
+              padding: 10px;
+              width: 500px !important;
+          }
+          .custom-btn {
+            width: 200px;
+
+          }
+  }
+  @media only screen and (max-width: 993px) {
+    .flex-kon {
+        display: block;
+    }
+    .part2 {
+        padding: 40px;
+        width: 400px;
+          }
+  }
+  @media only screen and (max-width: 767px) {
+      .part2 {
+    margin-right: 0px !important;
+    padding: 40px;
+    width: 350px;
+      }
+  }
+  @media only screen and (max-width: 575px) {
+    .part2 {
+  margin-right: 0px !important;
+  padding: 20px;
+    }
+}
+@media only screen and (max-width: 473px) {
+    .part2 {
+  margin-right: 0px !important;
+  padding: 20px;
+  width: 270px;
+    }
+    
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
