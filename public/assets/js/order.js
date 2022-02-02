@@ -1,3 +1,21 @@
+var
+persianNumbers = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g],
+arabicNumbers  = [/٠/g, /١/g, /٢/g, /٣/g, /٤/g, /٥/g, /٦/g, /٧/g, /٨/g, /٩/g],
+fixNumbers = function (str)
+{
+  if(typeof str === 'string')
+  {
+    for(var i=0; i<10; i++)
+    {
+      str = str.replace(persianNumbers[i], i).replace(arabicNumbers[i], i);
+    }
+  }
+  return str;
+};
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 const form = document.querySelector("#form");
 
 const schoolName = document.querySelector("#schoolName");
@@ -8,6 +26,10 @@ const numberManager = document.querySelector("#numPerson");
 const userName = document.querySelector("#username");
 const password = document.querySelector("#password");
 const password2 = document.querySelector("#password2");
+const firstPrice = document.querySelector("#first-price");
+const addPrice = document.querySelector("#add-price");
+const lastPrice = document.querySelector("#last-price");
+
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -93,6 +115,7 @@ const checkInput = () => {
 
     // Condition of UserName
     if (userNameValue === '') {
+        userName.focus();
         setErorr(userName, 'نام کاربری را وارد کنید');
     } else {
         if ((new RegExp("^[a-zA-Z0-9_]{5,}[a-zA-Z]+[0-9]*$")).test(userNameValue)) {
@@ -110,3 +133,8 @@ const setSuccess = (input) => {
     input.style.borderColor = "";
     input.nextElementSibling.innerHTML = "";
 }
+
+numStudent.addEventListener("keyup" , function(e){
+    var num = numStudent.value * 1 ;
+    firstPrice.innerHTML = numberWithCommas(num * 800);
+});
