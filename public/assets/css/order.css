@@ -127,10 +127,40 @@ select option {
     .flex-kon {
         display: block;
     }
+    .part2 {
+        padding: 40px;
+        width: 400px;
+          }
   }
   @media only screen and (max-width: 767px) {
       .part2 {
     margin-right: 0px !important;
     padding: 40px;
+    width: 350px;
       }
   }
+  @media only screen and (max-width: 575px) {
+    .part2 {
+  margin-right: 0px !important;
+  padding: 20px;
+    }
+}
+@media only screen and (max-width: 473px) {
+    .part2 {
+  margin-right: 0px !important;
+  padding: 20px;
+  width: 270px;
+    }
+    
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
