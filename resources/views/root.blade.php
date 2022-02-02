@@ -36,19 +36,16 @@
         <div class="navbar-collapse collapsed" id="navbarContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">خانه</a>
+              <a class="nav-link" href="{{route('service.shadfit')}}">خانه</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">درباره ما</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="">سرویس ها</a>
+              <a class="nav-link" href="">تست شادفیت</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="blog.html">وبلاگ</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">ارتباط با ما</a>
+              <a class="nav-link" href="#">ارتباط با ما</a>
             </li>
           </ul>
         </div>
