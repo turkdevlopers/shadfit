@@ -17,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/usercheck', function(){
+    return response()->json([
+        "Qualification" => "used" ,
+        "Message" => "این نام کاربری قبلا انتخاب شده"
+    ]);
+    // return response()->json([
+    //     "Qualification" => "free" ,
+    //     "Message" => ""
+    // ]);
+})->name("UserCheckApi");
