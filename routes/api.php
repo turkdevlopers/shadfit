@@ -18,10 +18,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/usercheck', function(){
+Route::get('/usercheck/{username}', function($username){
     return response()->json([
         "Qualification" => "used" ,
-        "Message" => "این نام کاربری قبلا انتخاب شده"
+        "Message" => "این نام کاربری قبلا انتخاب شده" ,
+        "Username" => $username
     ]);
     // return response()->json([
     //     "Qualification" => "free" ,

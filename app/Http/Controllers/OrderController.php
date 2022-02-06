@@ -19,7 +19,7 @@ class OrderController extends Controller
     }
 
     public function record_index(Order $order, Plan $plan){
-        $UserCheckApi = route("UserCheckApi");
+        $UserCheckApi = route("UserCheckApi","");
 
         return view('Order', compact("UserCheckApi"));
     }

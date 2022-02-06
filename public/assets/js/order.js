@@ -150,3 +150,12 @@ plans.addEventListener("change" , function(e){
     firstPrice.innerHTML = numberWithCommas(num * plan);
     lastPrice.innerHTML = numberWithCommas((num * plan)+3000);
 });
+userName.addEventListener("focusout", (event) => {
+    var sendRequest = new XMLHttpRequest();
+    sendRequest.open("GET",UserCheckApiUrl+"/"+userName.value.trim());
+    sendRequest.send();
+    sendRequest.onload = function () {
+        var result =  JSON.parse(this.response);
+        setErorr(userName,result.Message);
+    }
+});
