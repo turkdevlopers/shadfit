@@ -21,4 +21,7 @@ Route::get('/order', [OrderController::class , 'record_index']);
 Route::get('/test', function(){
     return view('tmp');
 });
+Route::get('/admin', function(){
+    return view('panel.root');
+});
 Auth::routes();
