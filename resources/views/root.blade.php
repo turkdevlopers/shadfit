@@ -113,7 +113,7 @@
         </div>
       </div>
 
-      <p class="text-center" id="copyright"> &copy; همه حقوق مادی و معنوی برای گروه <a href="#" target="_blank">ناینس</a> می باشد </p>
+      <p class="text-center font-weight-bold" id="copyright"> &copy; همه حقوق مادی و معنوی برای گروه <a href="#" target="_blank">ناینس</a> می باشد </p>
     </div>
   </footer>
 

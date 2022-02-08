@@ -150,7 +150,7 @@
         </div>
     </div> <!-- .container -->
     </div>
-    <p class="text-center" id="copyright"> © همه حقوق مادی و معنوی برای گروه <a href="#" target="_blank">ناینس</a> می باشد </p>
+    <p class="text-center font-weight-bold" id="copyright"> © همه حقوق مادی و معنوی برای گروه <a href="#" target="_blank">ناینس</a> می باشد </p>
     
     <script src="{{asset('assets/js/order.js')}}"></script>
     <script>
