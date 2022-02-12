@@ -77,7 +77,6 @@
                             <a href="{{route("register")}}">ثبت نام</a>
                             کنید
                           </span>
-                          <button class="btn btn-primary btn-lg btn-block">ورود</button>
                         </div>
                       </form>
       
