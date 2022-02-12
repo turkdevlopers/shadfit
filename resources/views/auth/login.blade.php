@@ -68,9 +68,16 @@
                         </div> --}}
       
                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                          <button type="button" class="btn btn-primary btn-lg btn-block">ورود</button>
+                          <button type="submit" class="btn btn-primary btn-lg btn-block">ورود</button>
                         </div>
-      
+                        
+                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                          <span>
+                            حساب ندارید ؟
+                            <a href="{{route("register")}}">ثبت نام</a>
+                            کنید
+                          </span>
+                        </div>
                       </form>
       
                     </div>

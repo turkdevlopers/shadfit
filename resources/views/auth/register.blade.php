@@ -40,7 +40,7 @@
                           <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <h5 class="d-flex">نام مدرسه: </h5>
-                            <input type="text" class="form-control" id="schoolName" placeholder="نام مدرسه را وارد کنید" aria-label="Sizing example input"aria-describedby="inputGroup-sizing-sm"minlength="5">
+                            <input type="text" name="school_name" class="form-control" id="schoolName" placeholder="نام مدرسه را وارد کنید" aria-label="Sizing example input"aria-describedby="inputGroup-sizing-sm"minlength="5">
                             <small class="errortxt"></small>
                           </div>
                         </div>
@@ -49,7 +49,7 @@
                           <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <h5 class="d-flex">نام کاربری: </h5>
-                            <input type="text" class="form-control" id="username"
+                            <input type="text" name="username" class="form-control" id="username"
                                 placeholder="نام کاربری را وارد کنید" aria-label="Sizing example input"
                                 aria-describedby="inputGroup-sizing-sm">
                                 <small class="errortxt"></small>
@@ -60,7 +60,7 @@
                           <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <h5 class="d-flex">شماره تلفن مدیر مدرسه :</h5>
-                            <input type="tel" class="form-control" id="numPerson" aria-label="Sizing example input"
+                            <input name="mobile" type="tel" class="form-control" id="numPerson" aria-label="Sizing example input"
                             aria-describedby="inputGroup-sizing-sm" placeholder="شماره را وارد کنید"
                             pattern="(0|\+98)?([ ]|-|[()]){0,2}9[1|2|3|4]([ ]|-|[()]){0,2}(?:[0-9]([ ]|-|[()]){0,2}){8}" />
                             <small class="errortxt"></small>
@@ -71,7 +71,7 @@
                           <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <h5 class="d-flex">رمز عبور :</h5>
-                            <input type="password" class="form-control" id="password"
+                            <input type="password" name="password" class="form-control" id="password"
                                 aria-label="Sizing example input"
                                 aria-describedby="inputGroup-sizing-sm" placeholder="رمز عبور"
                                 min="0" />
@@ -83,7 +83,7 @@
                             <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
                                 <h5 class="d-flex">تکرار رمز عبور: </h5>
-                                <input type="password" class="form-control" id="password2" placeholder="تکرار رمز عبور" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                <input type="password" name="passwordConfirm" class="form-control" id="password2" placeholder="تکرار رمز عبور" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                 <small class="errortxt"></small>
                             </div>
                           </div>
@@ -91,12 +91,19 @@
                         <div class="form-check mb-5">
                             <label class="form-check-label" for="form2Example3">
                              <a href="#!">شرایط و قوانین</a>  شادفیت را می پذیرم ! 
-                              </label>
+                              </label> &ThinSpace;
                           <input class="form-check-input" type="checkbox"value=""id="form2Example3c"/>
                         </div>
       
                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                          <button type="button" class="btn btn-primary btn-lg btn-block">ثبت نام</button>
+                          <button type="submit" class="btn btn-primary btn-lg btn-block">ثبت نام</button>
+                        </div>
+                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                          <span>
+                            حساب دارید ؟
+                            <a href="{{route("login")}}">ورود</a>
+                            کنید
+                          </span>
                         </div>
       
                       </form>
