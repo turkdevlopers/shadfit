@@ -33,7 +33,7 @@
       
                       <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">ورود</p>
       
-                      <form class="mx-1 mx-md-4">
+                      <form class="mx-1 mx-md-4" id="form">
       
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
@@ -77,6 +77,7 @@
                             <a href="{{route("register")}}">ثبت نام</a>
                             کنید
                           </span>
+                          <button class="btn btn-primary btn-lg btn-block">ورود</button>
                         </div>
                       </form>
       
@@ -96,5 +97,7 @@
         <p class="text-center font-weight-bold" id="copyright"> © همه حقوق مادی و معنوی برای گروه <a href="#" target="_blank">ناینس</a> می باشد </p>
         <br>
     </section>
+    <script src="{{asset('assets/js/login.js')}}"></script>
+
 </body>
 </html>
