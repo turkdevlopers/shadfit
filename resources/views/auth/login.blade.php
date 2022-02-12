@@ -33,16 +33,20 @@
       
                       <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">ورود</p>
       
-                      <form class="mx-1 mx-md-4" id="form">
-      
+                      <form action="{{route("login")}}" method="POST" class="mx-1 mx-md-4" id="form">
+                        @csrf
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <h5 class="d-flex">نام کاربری: </h5>
-                            <input type="text" class="form-control" id="username"
+                            <input type="text" name="username" class="form-control" id="username"
                                 placeholder="نام کاربری را وارد کنید" aria-label="Sizing example input"
                                 aria-describedby="inputGroup-sizing-sm">
-                                <small class="errortxt"></small>
+                                <small class="errortxt">
+                                  @error('username')
+                                      {{$message}}
+                                  @enderror
+                                </small>
                           </div>
                         </div>
       
@@ -51,11 +55,15 @@
                           <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <h5 class="d-flex">رمز عبور :</h5>
-                            <input type="password" class="form-control" id="password"
+                            <input type="password" name="password" class="form-control" id="password"
                                 aria-label="Sizing example input"
                                 aria-describedby="inputGroup-sizing-sm" placeholder="رمز عبور"
                                 min="0" />
-                                <small class="errortxt"></small>
+                                <small class="errortxt">
+                                  @error('password')
+                                  {{$message}}
+                              @enderror
+                                </small>
                           </div>
                         </div>
 

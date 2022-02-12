@@ -33,15 +33,18 @@
                     <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
       
                       <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">ثبت نام</p>
-      
-                      <form class="mx-1 mx-md-4" id="form">
-      
+                      <form action="{{route("register")}}" method="post" class="mx-1 mx-md-4" id="form">
+                        @csrf
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <h5 class="d-flex">نام مدرسه: </h5>
-                            <input type="text" name="school_name" class="form-control" id="schoolName" placeholder="نام مدرسه را وارد کنید" aria-label="Sizing example input"aria-describedby="inputGroup-sizing-sm"minlength="5">
-                            <small class="errortxt"></small>
+                            <input type="text" name="school_name" value="{{old("school_name")}}" class="form-control" id="schoolName" placeholder="نام مدرسه را وارد کنید" aria-label="Sizing example input"aria-describedby="inputGroup-sizing-sm"minlength="5">
+                            <small class="errortxt">
+                              @error('school_name')
+                                  {{$message}}
+                              @enderror
+                            </small>
                           </div>
                         </div>
       
@@ -49,10 +52,14 @@
                           <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <h5 class="d-flex">نام کاربری: </h5>
-                            <input type="text" name="username" class="form-control" id="username"
+                            <input type="text" name="username" value="{{old("username")}}" class="form-control" id="username"
                                 placeholder="نام کاربری را وارد کنید" aria-label="Sizing example input"
                                 aria-describedby="inputGroup-sizing-sm">
-                                <small class="errortxt"></small>
+                                <small class="errortxt">
+                                  @error('username')
+                                  {{$message}}
+                              @enderror
+                                </small>
                           </div>
                         </div>
       
@@ -60,10 +67,14 @@
                           <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <h5 class="d-flex">شماره تلفن مدیر مدرسه :</h5>
-                            <input name="mobile" type="tel" class="form-control" id="numPerson" aria-label="Sizing example input"
+                            <input name="mobile" value="{{old("mobile")}}" type="tel" class="form-control" id="numPerson" aria-label="Sizing example input"
                             aria-describedby="inputGroup-sizing-sm" placeholder="شماره را وارد کنید"
                             pattern="(0|\+98)?([ ]|-|[()]){0,2}9[1|2|3|4]([ ]|-|[()]){0,2}(?:[0-9]([ ]|-|[()]){0,2}){8}" />
-                            <small class="errortxt"></small>
+                            <small class="errortxt">
+                              @error('mobile')
+                              {{$message}}
+                          @enderror
+                            </small>
                           </div>
                         </div>
       
@@ -75,7 +86,11 @@
                                 aria-label="Sizing example input"
                                 aria-describedby="inputGroup-sizing-sm" placeholder="رمز عبور"
                                 min="0" />
-                                <small class="errortxt"></small>
+                                <small class="errortxt">
+                                  @error('password')
+                                  {{$message}}
+                              @enderror
+                                </small>
                           </div>
                         </div>
 
@@ -83,8 +98,12 @@
                             <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
                                 <h5 class="d-flex">تکرار رمز عبور: </h5>
-                                <input type="password" name="passwordConfirm" class="form-control" id="password2" placeholder="تکرار رمز عبور" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                <small class="errortxt"></small>
+                                <input type="password" name="password_confirmation" class="form-control" id="password2" placeholder="تکرار رمز عبور" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                <small class="errortxt">
+                                  @error('password_confirmation')
+                                  {{$message}}
+                              @enderror
+                                </small>
                             </div>
                           </div>
       

@@ -17,8 +17,8 @@ class AddMoreFieldToUsersTable extends Migration
            $table->string("address")->nullable();
            $table->string("school_name");
            $table->unsignedInteger("students_number")->nullable();
-           $table->unsignedInteger("phone")->nullable();
-           $table->unsignedInteger("mobile");
+           $table->string("phone")->nullable();
+           $table->string("mobile")->unique();
         });
     }
 
