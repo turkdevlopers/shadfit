@@ -23,5 +23,5 @@ Route::get('/test', function(){
 });
 Route::get('/admin', function(){
     return view('panel.root');
-});
+})->name("panel")->middleware("auth");
 Auth::routes();

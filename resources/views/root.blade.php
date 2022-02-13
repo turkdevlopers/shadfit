@@ -38,14 +38,14 @@
             <li class="nav-item">
               <a class="nav-link" href="{{route('service.shadfit')}}">خانه</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">درباره ما</a>
-            </li>
             <li class="nav-item active">
               <a class="nav-link" href="">تست شادفیت</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">ارتباط با ما</a>
+              <a class="nav-link" href="about.html">درباره ما</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-primary text-white" href="{{route("panel")}}">حساب کاربری</a>
             </li>
           </ul>
         </div>
