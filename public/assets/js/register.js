@@ -34,8 +34,9 @@ function checkInput() {
         setErorr(schoolName, 'نام مدرسه را وارد کنید');
     }
     else {
-        if (schoolName.value.length > 13) {
+        if (schoolName.value.length > 35) {
             setErorr(schoolName, 'نام مدرسه طوالانی هست');
+            return false;
         } else {
             if (just_persian(schoolNameValue)) {
                 setSuccess(schoolName);

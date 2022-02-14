@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PanelController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -21,7 +22,5 @@ Route::get('/order', [OrderController::class , 'record_index']);
 Route::get('/test', function(){
     return view('tmp');
 });
-Route::get('/admin', function(){
-    return view('panel.root');
-})->name("panel")->middleware("auth");
+Route::get('/admin', [PanelController::class , 'index'] )->name("panel")->middleware("auth");
 Auth::routes();
