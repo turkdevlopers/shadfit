@@ -139,7 +139,7 @@
             </div>
           </div>
         </div>
-        <br>
+        <br><br>
         <p class="text-center font-weight-bold" id="copyright"> © همه حقوق مادی و معنوی برای گروه <a href="#" target="_blank">ناینس</a> می باشد </p>
       <br>
     </section>
