@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>پنل شادفیت</title>
+    <title> @yield('title') - پنل شادفیت</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -15,8 +15,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vazir-font/30.1.0/font-face.min.css" integrity="sha512-FOp1/1tT19/xw6wkob5zvDLQUPFTgmYy6fXIKpo/nvZyMiyhe72YNhgSRlrE/FLS8OgYFONMGvqazSVLbO2/6Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vazir-font/30.1.0/font-face.min.css"
+        integrity="sha512-FOp1/1tT19/xw6wkob5zvDLQUPFTgmYy6fXIKpo/nvZyMiyhe72YNhgSRlrE/FLS8OgYFONMGvqazSVLbO2/6Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -35,9 +37,10 @@
 
 <body>
     <div class=" position-relative bg-white d-flex p-0">
-        
+
         <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -53,33 +56,23 @@
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="{{asset("panel/img/school.png")}}" alt="school">
-                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                        <img class="rounded-circle" src="{{ asset('panel/img/school.png') }}" alt="school">
+                        <div
+                            class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
+                        </div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">&ThinSpace; {{Auth::user()->school_name}} </h6>
+                        <h6 class="mb-0">&ThinSpace; {{ Auth::user()->school_name }} </h6>
                         <span>&ThinSpace; مدرسه </span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <br><a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>  داشبورد </a><br>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>  تنظیمات ربات </a><br>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="button.html" class="dropdown-item">سامانه پادا</a>
-                            <a href="typography.html" class="dropdown-item">سامانه همگام</a>
-                            <a href="element.html" class="dropdown-item">سرویس آموزشی</a>
-                            <a href="element.html" class="dropdown-item">شماره صندلی</a>
-                            <a href="element.html" class="dropdown-item">نظرسنجی</a>
-                            <a href="element.html" class="dropdown-item">پیش ثبت نام</a>
-                            <a href="element.html" class="dropdown-item">رای گیری</a>
-                            <a href="element.html" class="dropdown-item">برنامه هفتگی</a>
-
-                        </div>
-                    </div>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>  مشاهده آمار</a><br>
-                    <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>  صورت حساب</a><br>
-                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-plus me-2"></i> افزودن دانش آموز </a><br>
+                    <br><a href="{{route("panel")}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>داشبورد </a><br>
+                    <a href="{{route("botsetting")}}" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>تنظیمات ربات</a><br>
+                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i> مشاهده آمار</a><br>
+                    <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i> صورت حساب</a><br>
+                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-plus me-2"></i> افزودن دانش آموز
+                    </a><br>
                 </div>
             </nav>
         </div>
@@ -102,31 +95,36 @@
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="{{asset("panel/img/school.png")}}" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">{{Auth::user()->school_name}}</span>
+                            <img class="rounded-circle me-lg-2" src="{{ asset('panel/img/school.png') }}" alt=""
+                                style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">{{ Auth::user()->school_name }}</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">پروفایل</a>
-                            <form action="{{route("logout")}}" method="post">@csrf<button type="submit" class="dropdown-item">خروج</button></form>
-                            
+                            <form action="{{ route('logout') }}" method="post">@csrf<button type="submit"
+                                    class="dropdown-item">خروج</button></form>
+
                         </div>
                     </div>
                 </div>
             </nav>
             <!-- Navbar End -->
             <div class="container">
-            @yield('content')
+                <br>
+                <h1 class="text-center">@yield('title')</h1>
+                @yield('content')
 
 
- 
-        </div>
-        <!-- Content End -->
-           <!-- Footer Start -->
+
+            </div>
+            <!-- Content End -->
+            <!-- Footer Start -->
             <div class="container-fuild pt-4 px-4">
                 <div class="bg-light rounded-top p-4 shadow-sm">
                     <div class="row">
                         <div class="col-12 col-sm-12 text-center text-sm-start">
-                            <p class="text-center font-weight-bold" id="copyright"> © همه حقوق مادی و معنوی برای گروه <a href="#" target="_blank">ناینس</a> می باشد </p>
+                            <p class="text-center font-weight-bold" id="copyright"> © همه حقوق مادی و معنوی برای گروه <a
+                                    href="#" target="_blank">ناینس</a> می باشد </p>
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->

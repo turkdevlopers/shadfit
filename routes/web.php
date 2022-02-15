@@ -24,3 +24,7 @@ Route::get('/test', function(){
 });
 Route::get('/admin', [PanelController::class , 'index'] )->name("panel")->middleware("auth");
 Auth::routes();
+
+Route::get('/admin/botsetting', function(){
+    return view('panel.botsetting');
+})->name('botsetting');

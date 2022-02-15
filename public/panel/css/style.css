@@ -32,6 +32,7 @@ width: 20px;
 height: 20px;
 margin-right: 10px;
 background-color: #1ec835 !important;
+margin-top: -2px;
 }
 /*** Spinner ***/
 #spinner {

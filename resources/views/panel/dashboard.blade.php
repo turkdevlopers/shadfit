@@ -1,4 +1,7 @@
 @extends('panel.root')
+@section('title')
+داشبورد
+@endsection
 @section('content')
 
     <!-- Recent Sales Start -->
