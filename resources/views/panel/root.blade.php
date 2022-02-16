@@ -66,7 +66,7 @@
                         <span>&ThinSpace; مدرسه </span>
                     </div>
                 </div>
-                <div class="navbar-nav w-100 menu">
+                <div class="navbar-nav w-100 menu pjaxmenu">
                     <br><a href="{{route("panel")}}" class="nav-item nav-link @yield('dashboard')"><i class="fa fa-tachometer-alt me-2"></i>داشبورد </a><br>
                     <a href="{{route("botsetting")}}" class="nav-item nav-link @yield('botsetting')"><i class="fa fa-laptop me-2"></i>تنظیمات ربات</a><br>
                     <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i> مشاهده آمار</a><br>
@@ -109,7 +109,7 @@
                 </div>
             </nav>
             <!-- Navbar End -->
-            <div class="container">
+            <div class="container" id="pjax-container">
                 <br>
                 <h1 class="text-center">@yield('title')</h1>
                 @yield('content')
@@ -152,6 +152,26 @@
     
     <!-- Template Javascript -->
     <script src="{{asset("panel/js/main.js")}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js" integrity="sha512-7G7ueVi8m7Ldo2APeWMCoGjs4EjXDhJ20DrPglDQqy8fnxsFQZeJNtuQlTT0xoBQJzWRFp4+ikyMdzDOcW36kQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $('document').ready(function() {
+            $(document).pjax('.pjaxmenu a', '#pjax-container', {
+                timeout: 10000
+            });
+        $(document).on('pjax:send', function() {
+            $('#pjax-container').css("filter","blur(5px)");
+        });
+        $(document).on('pjax:end', function() {
+            $('#pjax-container').css("filter","blur(0px)");
+        });
+        $(".pjaxmenu a").click(function () {
+            $(".pjaxmenu a").removeClass("active");
+            $(this).addClass("active");
+        });
+    });
+    </script>
+
 </body>
 
 </html>

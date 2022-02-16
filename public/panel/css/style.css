@@ -8,6 +8,9 @@ body {
     direction: rtl;
     font-family: Vazir !important;
 }
+#pjax-container {
+    transition: all 1s ease 0s;
+}
 .back-to-top {
     position: fixed;
     display: none;
