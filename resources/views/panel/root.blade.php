@@ -160,11 +160,12 @@
                 timeout: 10000
             });
         $(document).on('pjax:send', function() {
-            $('#pjax-container').css("filter","blur(5px)");
+            $('#pjax-container').css("filter","blur(10px)");
         });
         $(document).on('pjax:end', function() {
             $('#pjax-container').css("filter","blur(0px)");
         });
+
         $(".pjaxmenu a").click(function () {
             $(".pjaxmenu a").removeClass("active");
             $(this).addClass("active");
