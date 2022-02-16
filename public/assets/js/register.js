@@ -72,6 +72,7 @@ function checkInput() {
         setErorr(password2, 'تکرار رمز عبور خود را وارد کنید');
     } else if (passwordValue !== password2Value) {
         setErorr(password2, 'رمز عبور اشتباه وارد شده');
+        return false;
     } else {
         if (password2.value.length < 8) {
             setErorr(password2, 'رمز عبور شما باید بیشتر از 8 کاراکتر باشد');
