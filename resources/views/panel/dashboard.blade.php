@@ -2,6 +2,9 @@
 @section('title')
 داشبورد
 @endsection
+@section('dashboard')
+    active
+@endsection
 @section('content')
 
     <!-- Recent Sales Start -->
