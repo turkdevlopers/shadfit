@@ -14,6 +14,7 @@ const numberManager = document.querySelector("#numPerson");
 const userName = document.querySelector("#username");
 const password = document.querySelector("#password");
 const password2 = document.querySelector("#password2");
+const checkBox =document.querySelector ("#check-box");
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -36,13 +37,12 @@ function checkInput() {
     else {
         if (schoolName.value.length > 35) {
             setErorr(schoolName, 'نام مدرسه طوالانی هست');
-            return false;
         } else {
             if (just_persian(schoolNameValue)) {
                 setSuccess(schoolName);
-                return true;
             } else {
                 setErorr(schoolName, 'نام مدرسه باید فارسی باشد');
+                return false;
             }
         }
     }
@@ -52,7 +52,6 @@ function checkInput() {
         setErorr(numberManager, 'شماره تلفن مدیر مدرسه را وارد کنید');
     } else {
         setSuccess(numberManager);
-        return true;
     }
     // Condition of password
     if (passwordValue === '') {
@@ -63,7 +62,6 @@ function checkInput() {
             setErorr(password, 'رمز عبور شما باید بیشتر از 8 کاراکتر باشد');
         } else {
             setSuccess(password);
-            return true;
         }
     }
     // Condition of password2
@@ -72,10 +70,10 @@ function checkInput() {
         setErorr(password2, 'تکرار رمز عبور خود را وارد کنید');
     } else if (passwordValue !== password2Value) {
         setErorr(password2, 'رمز عبور اشتباه وارد شده');
-        return false;
     } else {
         if (password2.value.length < 8) {
             setErorr(password2, 'رمز عبور شما باید بیشتر از 8 کاراکتر باشد');
+            return false;
         } else {
             setSuccess(password2);
             return true;
@@ -89,10 +87,15 @@ function checkInput() {
     } else {
         if ((new RegExp("^[a-zA-Z0-9_]{5,}[a-zA-Z]+[0-9]*$")).test(userNameValue)) {
             setSuccess(userName);
-            return true;
         } else {
             setErorr(userName, 'نامعتبر : نام کاربری باید با لاتین نوشته شود');
+            return false;
         }
+    }
+    // Input Check Box
+    if(!checkBox.checked){
+        alert('شما باید شرایط و قوانین ما را بپذیرید !');
+        return false;
     }
 }
 const setErorr = (input, message) => {
