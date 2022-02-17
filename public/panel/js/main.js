@@ -11,6 +11,45 @@
     };
     spinner();
     
+//new devs
+
+function sortIt() {
+    if(document.getElementById('items')){
+        new Sortable(document.getElementById('items'), {
+        group: {
+            name: 'qux',
+            put: ['bar']
+        },
+        animation: 250 ,
+        });
+        new Sortable(document.getElementById('bars'), {
+            group: {
+                name: 'bar',
+                pull: "clone",
+            },
+            animation: 250 ,
+            });
+    }
+}
+
+    $(document).pjax('.pjaxmenu a', '#pjax-container', {
+        timeout: 10000
+    });
+$(document).on('pjax:send', function() {
+    $('#pjax-container').css("filter","blur(10px)");
+});
+$(document).on('pjax:end', function() {
+    $('#pjax-container').css("filter","blur(0px)");
+});
+
+$(".pjaxmenu a").click(function () {
+    $(".pjaxmenu a").removeClass("active");
+    $(this).addClass("active");
+});
+sortIt();
+$(document).ajaxComplete(function () {
+    sortIt();
+});
     
     // Back to top button
     $(window).scroll(function () {

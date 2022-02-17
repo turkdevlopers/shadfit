@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="panel/img/favicon.ico" rel="icon">
+    <link rel="shortcut icon" href="{{asset('assets/img/favicon.png')}}" type="image/x-icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="{{asset("https://fonts.googleapis.com")}}">
@@ -24,8 +24,8 @@
     <link href="{{asset("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css")}}" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="{{asset("lib/owlcarousel/asset/owl.carousel.min.css")}}" rel="stylesheet">
-    <link href="{{asset("lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css")}}" rel="stylesheet" />
+    {{-- <link href="{{asset("lib/owlcarousel/asset/owl.carousel.min.css")}}" rel="stylesheet">
+    <link href="{{asset("lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css")}}" rel="stylesheet" /> --}}
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{asset("panel/css/bootstrap.min.css")}}" rel="stylesheet">
@@ -141,37 +141,20 @@
 
     <!-- JavaScript Libraries -->
     <script src="{{asset("https://code.jquery.com/jquery-3.4.1.min.js")}}"></script>
-    <script src="{{asset("https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js")}}"></script>
+    {{-- <script src="{{asset("https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js")}}"></script>
     <script src="{{asset("lib/chart/chart.min.js")}}"></script>
     <script src="{{asset("lib/easing/easing.min.js")}}"></script>
     <script src="{{asset("lib/waypoints/waypoints.min.js")}}"></script>
     <script src="{{asset("lib/owlcarousel/owl.carousel.min.js")}}"></script>
     <script src="{{asset("lib/tempusdominus/js/moment.min.js")}}"></script>
     <script src="{{asset("lib/tempusdominus/js/moment-timezone.min.js")}}"></script>
-    <script src="{{asset("lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js")}}"></script>
+    <script src="{{asset("lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js")}}"></script> --}}
     
     <!-- Template Javascript -->
-    <script src="{{asset("panel/js/main.js")}}"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js" integrity="sha512-7G7ueVi8m7Ldo2APeWMCoGjs4EjXDhJ20DrPglDQqy8fnxsFQZeJNtuQlTT0xoBQJzWRFp4+ikyMdzDOcW36kQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script>
-        $('document').ready(function() {
-            $(document).pjax('.pjaxmenu a', '#pjax-container', {
-                timeout: 10000
-            });
-        $(document).on('pjax:send', function() {
-            $('#pjax-container').css("filter","blur(10px)");
-        });
-        $(document).on('pjax:end', function() {
-            $('#pjax-container').css("filter","blur(0px)");
-        });
-
-        $(".pjaxmenu a").click(function () {
-            $(".pjaxmenu a").removeClass("active");
-            $(this).addClass("active");
-        });
-    });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="{{asset("panel/js/main.js")}}"></script>
 
 </body>
 
