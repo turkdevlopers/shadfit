@@ -1,8 +1,8 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,13 +19,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/usercheck/{username}', function($username){
+    $user = User::firstOrNew(array('username' => $username));
+    if ($user->id) {
+        return response()->json([
+            "Qualification" => "used" ,
+            "Message" => "این نام کاربری قبلا انتخاب شده" ,
+            "Username" => $username
+        ]);
+    }
     return response()->json([
-        "Qualification" => "used" ,
-        "Message" => "این نام کاربری قبلا انتخاب شده" ,
-        "Username" => $username
+        "Qualification" => "free" ,
+        "Message" => ""
     ]);
-    // return response()->json([
-    //     "Qualification" => "free" ,
-    //     "Message" => ""
-    // ]);
 })->name("UserCheckApi");

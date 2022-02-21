@@ -42,4 +42,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function order()
+    {
+        return $this->hasMany('Order');
+    }
+    public function botsetting()
+    {
+        return $this->hasOne('BotSetting');
+    }
 }

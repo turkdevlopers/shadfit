@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+    public function payed()
+    {
+        return $this->hasOne('Payed');
+    }
+    public function user()
+    {
+        return $this->belongsTo('User');
+    }
 }
