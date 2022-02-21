@@ -18,17 +18,10 @@ function sortIt() {
         new Sortable(document.getElementById('items'), {
         group: {
             name: 'qux',
-            put: ['bar']
+            put: ['bar'],
         },
         animation: 250 ,
         });
-        new Sortable(document.getElementById('bars'), {
-            group: {
-                name: 'bar',
-                pull: "clone",
-            },
-            animation: 250 ,
-            });
     }
 }
 
@@ -46,10 +39,38 @@ $(".pjaxmenu a").click(function () {
     $(".pjaxmenu a").removeClass("active");
     $(this).addClass("active");
 });
+
 sortIt();
+botsetting_js();
 $(document).ajaxComplete(function () {
+    /**function place */
     sortIt();
+    botsetting_js();
 });
+
+
+//hossein ************************************
+
+function botsetting_js(){
+    $('.opt').click(function (ev) {
+       var optionName = this.getAttribute('option_name');
+       var optionId = this.getAttribute('option_id') * 1;
+        if (optionId <= 5 && optionName != null ) {
+            var result = hamgam(optionName);
+            $('#items').append(result);
+            console.log("asdas")
+        }
+    });
+}
+
+
+function hamgam(name) {
+    return `<div class="bg-white shadow-sm text-center rounded p-4 mt-4"> <details> <summary class="sum"> <h4>${name}</h4> </summary> <br><form class="d-md-flex ms-4"> <input class="form-control mb-3 border-0 bg-light" type="text" placeholder="عنوان گزینه" aria-label="default input example"> </form> <div class="d-flex"> <button type="button" class="btn btn-outline-link m-2 mt-4">راهنمای استفاده</button> </div></details> </div>`
+}
+function voting(name, addBtnName, inputPlaceHolder) {
+    
+}
+
     
     // Back to top button
     $(window).scroll(function () {

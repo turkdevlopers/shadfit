@@ -372,3 +372,10 @@ margin-top: -2px;
 summary h4 {
     display: contents;
 }
+#bars div:hover {
+background-color: #dfe8f2c7   !important;
+box-shadow: 0 0.15rem 0.25rem #00000014 !important;
+}
+#bars div {
+    transition: 0.5s all;
+}
