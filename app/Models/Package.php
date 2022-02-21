@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Plan extends Model
+class Package extends Model
 {
     use HasFactory;
-    public function package()
+    public function order()
     {
-        return $this->hasOne('Package');
+        return $this->hasOne('Order');
     }
 }

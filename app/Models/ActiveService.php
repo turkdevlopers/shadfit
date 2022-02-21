@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Plan extends Model
+class ActiveService extends Model
 {
     use HasFactory;
-    public function package()
+    public function paid()
     {
-        return $this->hasOne('Package');
+        return $this->belongsTo('Payed');
     }
 }

@@ -144,5 +144,8 @@
       <br>
     </section>
     <script src="{{asset('assets/js/register.js')}}"></script>
+    <script>
+      var UserCheckApiUrl = "{{ route("UserCheckApi","") }}";
+  </script>
 </body>
 </html>

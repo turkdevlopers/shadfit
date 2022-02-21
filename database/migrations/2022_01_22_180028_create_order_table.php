@@ -18,6 +18,8 @@ class CreateOrderTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('package_id');
             $table->boolean('satuse');
+            $table->integer('students_number');
+            $table->unsignedBigInteger('order_price');
             $table->timestamps();
         });
     }
