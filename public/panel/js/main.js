@@ -32,7 +32,7 @@ function sortIt() {
     }
 }
 
-    $(document).pjax('.pjaxmenu a', '#pjax-container', {
+    $(document).pjax('a', '#pjax-container', {
         timeout: 10000
     });
 $(document).on('pjax:send', function() {

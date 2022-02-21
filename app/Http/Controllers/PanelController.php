@@ -16,4 +16,8 @@ class PanelController extends Controller
     {
         return view('panel.dashboard');
     }
+    public function profile()
+    {
+        return view('panel.profile');
+    }
 }

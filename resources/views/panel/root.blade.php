@@ -100,7 +100,7 @@
                             <span class="d-none d-lg-inline-flex">{{ Auth::user()->school_name }}</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">پروفایل</a>
+                            <a href="{{ route('profile') }}" class="dropdown-item">پروفایل</a>
                             <form action="{{ route('logout') }}" method="post">@csrf<button type="submit"
                                     class="dropdown-item">خروج</button></form>
 
@@ -141,8 +141,8 @@
 
     <!-- JavaScript Libraries -->
     <script src="{{asset("https://code.jquery.com/jquery-3.4.1.min.js")}}"></script>
-    {{-- <script src="{{asset("https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js")}}"></script>
-    <script src="{{asset("lib/chart/chart.min.js")}}"></script>
+     <script src="{{asset("https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js")}}"></script>
+    {{--<script src="{{asset("lib/chart/chart.min.js")}}"></script>
     <script src="{{asset("lib/easing/easing.min.js")}}"></script>
     <script src="{{asset("lib/waypoints/waypoints.min.js")}}"></script>
     <script src="{{asset("lib/owlcarousel/owl.carousel.min.js")}}"></script>

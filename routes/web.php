@@ -17,14 +17,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ServiceController::class,'shadfit'])->name('service.shadfit');
-Route::get('/order', [OrderController::class , 'record_index']);
-Route::get('/test', function(){
+Route::get('/', [ServiceController::class, 'shadfit'])->name('service.shadfit');
+Route::get('/order', [OrderController::class, 'record_index']);
+Route::get('/test', function () {
     return view('tmp');
 });
-Route::get('/admin', [PanelController::class , 'index'] )->name("panel")->middleware("auth");
 Auth::routes();
 
-Route::get('/admin/botsetting', function(){
-    return view('panel.botsetting');
-})->name('botsetting');
+Route::prefix('admin')->middleware("auth")->group(function () {
+    Route::get('/', [PanelController::class, 'index'])->name('panel');
+    Route::get('/botsetting', function () {return view('panel.botsetting');})->name('botsetting');
+    Route::get('/profile', [PanelController::class, 'profile'])->name("profile");
+});

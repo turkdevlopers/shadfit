@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePanelsTable extends Migration
+class AddPaidToEditTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreatePanelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('panels', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('plan', function (Blueprint $table) {
+            $table->string('name');
+            $table->integer('period');
         });
     }
 
@@ -26,6 +26,8 @@ class CreatePanelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('panels');
+        Schema::table('plan', function (Blueprint $table) {
+            //
+        });
     }
 }

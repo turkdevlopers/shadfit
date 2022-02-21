@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
-use App\Models\Plan;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -18,7 +17,7 @@ class OrderController extends Controller
         //
     }
 
-    public function record_index(Order $order, Plan $plan){
+    public function record_index(){
         $UserCheckApi = route("UserCheckApi","");
 
         return view('Order', compact("UserCheckApi"));
