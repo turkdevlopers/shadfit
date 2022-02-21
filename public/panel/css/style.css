@@ -379,3 +379,9 @@ box-shadow: 0 0.15rem 0.25rem #00000014 !important;
 #bars div {
     transition: 0.5s all;
 }
+.border-delet {
+    border: 0px solid !important;
+}
+.left-button {
+    float: left !important;
+}

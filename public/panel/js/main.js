@@ -58,18 +58,40 @@ function botsetting_js(){
         if (optionId <= 5 && optionName != null ) {
             var result = hamgam(optionName);
             $('#items').append(result);
-            console.log("asdas")
+        }
+        if (optionId === 7 && optionName != null ) {
+            var result = survey(optionName);
+            $('#items').append(result);
+        }
+        if (optionId === 6 && optionName != null ) {
+            var result = voting(optionName);
+            $('#items').append(result);
         }
     });
-}
+    $("#add-btn").click(function(ev){
+         var new_input = inputNew() ;
+        $('#new_chq').append(new_input);
+        
+    });
+    $("#remove-btn").click(function(ev){
+        $('#input-add').remove();  
+     });
 
+ }
+ function inputNew() {
+    return `<input class="form-control mb-3 border-0 bg-light" id="input-add" type="text" placeholder="نام کاندید" aria-label="default input example">` ;
+}
 
 function hamgam(name) {
-    return `<div class="bg-white shadow-sm text-center rounded p-4 mt-4"> <details> <summary class="sum"> <h4>${name}</h4> </summary> <br><form class="d-md-flex ms-4"> <input class="form-control mb-3 border-0 bg-light" type="text" placeholder="عنوان گزینه" aria-label="default input example"> </form> <div class="d-flex"> <button type="button" class="btn btn-outline-link m-2 mt-4">راهنمای استفاده</button> </div></details> </div>`
+    return `<div class="bg-white shadow-sm text-center rounded p-4 mt-4"> <details> <summary class="sum"> <h4>${name}</h4> </summary> <br><form class="d-md-flex ms-4"> <input class="form-control mb-3 border-0 bg-light" type="text" placeholder="عنوان گزینه" aria-label="default input example"> </form> <div class="d-flex"> <button type="button" class="btn btn-outline-link m-2 mt-4">راهنمای استفاده</button> </div></details> </div>` ;
 }
-function voting(name, addBtnName, inputPlaceHolder) {
-    
+function survey(name) {
+    return `  <div class="bg-white shadow-sm text-center rounded p-4 mt-4"> <details> <summary class="sum"> <h4>${name}</h4> </summary> <br><form class="ms-4"> <input class="form-control mb-3 border-0 bg-light" type="text" placeholder="عنوان گزینه" aria-label="default input example"> <div class="d-md-flex col-lg-12"> <div class="col-lg-8 col-md-6" id="new_chq"> <input class="form-control mb-3 border-0 bg-light" id="input-add" type="text" placeholder="مورد گزینه" aria-label="default input example"> </div><div class="col-lg-4 col-md-6"> <button type="button" class="btn btn-outline-success m-2 border-delet" id="add-btn">افزودن مورد <i class="fa fa-plus ms-2"></i></button> <button type="button" class="btn btn-outline-danger m-2 border-delet" id="remove-btn">حذف مورد <i class="fa fa-minus ms-2"></i></button> </div></div></form> <div class="d-flex"> <button type="button" class="btn btn-outline-link m-2 mt-4">راهنمای استفاده</button> </div></details> </div>` ;
 }
+function voting(name) {
+    return `  <div class="bg-white shadow-sm text-center rounded p-4 mt-4"> <details> <summary class="sum"> <h4>${name}</h4> </summary> <br><form class="ms-4"> <input class="form-control mb-3 border-0 bg-light" type="text" placeholder="عنوان گزینه" aria-label="default input example"> <div class="d-md-flex col-lg-12"> <div class="col-lg-8 col-md-6" id="new_chq"> <input class="form-control mb-3 border-0 bg-light" id="input-add" type="text" placeholder="نام کاندید" aria-label="default input example"> </div><div class="col-lg-4 col-md-6"> <button type="button" class="btn btn-outline-success m-2 border-delet" id="add-btn">افزودن کاندید <i class="fa fa-plus ms-2"></i></button> <button type="button" class="btn btn-outline-danger m-2 border-delet" id="remove-btn">حذف کاندید <i class="fa fa-minus ms-2"></i></button> </div></div></form> <div class="d-flex"> <button type="button" class="btn btn-outline-link m-2 mt-4">راهنمای استفاده</button> </div></details> </div>` ;
+}
+
 
     
     // Back to top button
