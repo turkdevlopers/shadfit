@@ -15,7 +15,7 @@ class CreatePackageTable extends Migration
     {
         Schema::create('package', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
+            $table->set('type', ['simple', 'normal', 'professional']);
             $table->integer('price');
             $table->json('options');
             $table->foreignId('plan_id');
