@@ -107,13 +107,6 @@
                             </div>
                           </div>
       
-                        <div class="form-check mb-5">
-                            <label class="form-check-label" for="form2Example3">
-                             <a href="#!">شرایط و قوانین</a>  شادفیت را می پذیرم ! 
-                              </label> &ThinSpace;
-                          <input class="form-check-input" type="checkbox"value=""id="check-box"/>
-                        </div>
-      
                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                           <button type="submit" class="btn btn-primary btn-lg btn-block">ثبت نام</button>
                         </div>

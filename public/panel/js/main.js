@@ -46,10 +46,11 @@ $(document).ajaxComplete(function () {
     /**function place */
     sortIt();
     botsetting_js();
+    checkInput();
 });
 
 
-//hossein ************************************
+//bot Setting part ************************************
 
 function botsetting_js(){
 
@@ -81,6 +82,10 @@ function botsetting_js(){
         $('#input-add').remove(); 
     });
     
+    $( "#items" ).on( "click", ".part-remove", function() {
+        var result = this.parentElement.parentElement.parentElement;
+        $(result).remove(); 
+    });
 
  }
  function inputNew(name) {
@@ -88,13 +93,13 @@ function botsetting_js(){
 }
 
 function hamgam(name) {
-    return `<div class="bg-white shadow-sm text-center rounded p-4 mt-4"> <details> <summary class="sum"> <h4>${name}</h4> </summary> <br><form class="d-md-flex ms-4"> <input class="form-control mb-3 border-0 bg-light" type="text" placeholder="عنوان گزینه" aria-label="default input example"> </form> <div class="d-flex"> <button type="button" class="btn btn-outline-link m-2 mt-4">راهنمای استفاده</button> </div></details> </div>` ;
+    return ` <div class="bg-white shadow-sm text-center rounded p-4 mt-4"> <details> <summary class="sum"> <h4>${name}</h4> </summary> <br><form class="d-md-flex ms-4"> <input class="form-control mb-3 border-0 bg-light" type="text" placeholder="عنوان گزینه" aria-label="default input example"> </form> <div class="d-flex justify-content-between align-items-center"> <button type="button" class="btn btn-danger m-2 part-remove">حذف این بخش</button> <button type="button" class="btn btn-outline-link m-2 mt-4">راهنمای استفاده</button> </div></details> </div>` ;
 }
 function survey(name) {
-    return `  <div class="bg-white shadow-sm text-center rounded p-4 mt-4"> <details> <summary class="sum"> <h4>نظرسنجی</h4> </summary> <br><form class="ms-4"> <input class="form-control mb-3 border-0 bg-light" type="text" placeholder="عنوان گزینه" aria-label="default input example"> <div class="d-md-flex col-lg-12"> <div class="col-lg-8 col-md-6"> <input class="form-control mb-3 border-0 bg-light" type="text" placeholder="مورد گزینه" aria-label="default input example"> </div><div class="col-lg-4 col-md-6"> <button type="button" add-placeholder="مورد گزینه" class="btn btn-outline-success m-2 border-delet add-btn">افزودن مورد <i class="fa fa-plus ms-2"></i></button> <button type="button" class="btn btn-outline-danger m-2 border-delet remove-btn">حذف مورد <i class="fa fa-minus ms-2"></i></button> </div></div></form> <div class="d-flex"> <button type="button" class="btn btn-outline-link m-2 mt-4">راهنمای استفاده</button> </div></details> </div>` ;
+    return `  <div class="bg-white shadow-sm text-center rounded p-4 mt-4"> <details> <summary class="sum"> <h4>${name}</h4> </summary> <br><form class="ms-4"> <input class="form-control mb-3 border-0 bg-light" type="text" placeholder="عنوان گزینه" aria-label="default input example"> <div class="d-md-flex col-lg-12"> <div class="col-lg-8 col-md-6"> <input class="form-control mb-3 border-0 bg-light" type="text" placeholder="مورد گزینه" aria-label="default input example"> </div><div class="col-lg-4 col-md-6"> <button type="button" add-placeholder="مورد گزینه" class="btn btn-outline-success m-2 border-delet add-btn">افزودن مورد <i class="fa fa-plus ms-2"></i></button> <button type="button" class="btn btn-outline-danger m-2 border-delet remove-btn">حذف مورد <i class="fa fa-minus ms-2"></i></button> </div></div></form>  <div class="d-flex justify-content-between align-items-center"> <button type="button" class="btn btn-danger m-2 part-remove">حذف این بخش</button> <button type="button" class="btn btn-outline-link m-2 mt-4">راهنمای استفاده</button> </div></details> </div>` ;
 }
 function voting(name) {
-    return `  <div class="bg-white shadow-sm text-center rounded p-4 mt-4"> <details> <summary class="sum"> <h4>${name}</h4> </summary> <br><form class="ms-4"> <input class="form-control mb-3 border-0 bg-light" type="text" placeholder="عنوان گزینه" aria-label="default input example"> <div class="d-md-flex col-lg-12"> <div class="col-lg-8 col-md-6 new_chq"> <input class="form-control mb-3 border-0 bg-light" type="text" placeholder="نام کاندید" aria-label="default input example"> </div><div class="col-lg-4 col-md-6"> <button type="button" add-placeholder="نام کاندید" class="btn btn-outline-success m-2 border-delet add-btn">افزودن کاندید <i class="fa fa-plus ms-2"></i></button> <button type="button" class="btn btn-outline-danger m-2 border-delet remove-btn">حذف کاندید <i class="fa fa-minus ms-2"></i></button> </div></div></form> <div class="d-flex"> <button type="button" class="btn btn-outline-link m-2 mt-4">راهنمای استفاده</button> </div></details> </div>` ;
+    return `  <div class="bg-white shadow-sm text-center rounded p-4 mt-4"> <details> <summary class="sum"> <h4>${name}</h4> </summary> <br><form class="ms-4"> <input class="form-control mb-3 border-0 bg-light" type="text" placeholder="عنوان گزینه" aria-label="default input example"> <div class="d-md-flex col-lg-12"> <div class="col-lg-8 col-md-6 new_chq"> <input class="form-control mb-3 border-0 bg-light" type="text" placeholder="نام کاندید" aria-label="default input example"> </div><div class="col-lg-4 col-md-6"> <button type="button" add-placeholder="نام کاندید" class="btn btn-outline-success m-2 border-delet add-btn">افزودن کاندید <i class="fa fa-plus ms-2"></i></button> <button type="button" class="btn btn-outline-danger m-2 border-delet remove-btn">حذف کاندید <i class="fa fa-minus ms-2"></i></button> </div></div></form>  <div class="d-flex justify-content-between align-items-center"> <button type="button" class="btn btn-danger m-2 part-remove">حذف این بخش</button> <button type="button" class="btn btn-outline-link m-2 mt-4">راهنمای استفاده</button> </div></details> </div>` ;
 }
 
 
@@ -113,7 +118,122 @@ function voting(name) {
     $("#imageUpload").change(function() {
         readURL(this);
     });
-    // Back to top button
+    //Profil Validation ---------------------------------------------
+
+    function just_persian(str) {
+        var p = /^[\u0600-\u06FF\s]+$/;
+    
+        if (!p.test(str)) {
+            return false;
+        }
+        return true;
+    }
+    const form = document.querySelector("#form");
+    
+    const schoolName = document.querySelector("#schoolName");
+    const schoolAddress = document.querySelector("#address");
+    const numberSchool = document.querySelector("#numSchool");
+    const numberManager = document.querySelector("#numPerson");
+    const password = document.querySelector("#password");
+    const password2 = document.querySelector("#password2");
+    
+    
+    
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        checkInput();
+    });
+    function checkInput() {
+        const schoolNameValue = schoolName.value.trim();
+        const schoolAddressValue = schoolAddress.value.trim();
+        const numberSchoolValue = numberSchool.value.trim();
+        const numberManagerValue = numberManager.value.trim();
+        const passwordValue = password.value.trim();
+        const password2Value = password2.value.trim();
+        // Condition of school name
+        if (schoolNameValue === '') {
+            schoolName.focus();
+            setErorr(schoolName, 'نام مدرسه را وارد کنید');
+        }
+        else {
+            if (schoolName.value.length > 13) {
+                setErorr(schoolName, 'نام مدرسه طوالانی هست');
+            } else {
+                if (just_persian(schoolNameValue)) {
+                    setSuccess(schoolName);
+                } else {
+                    setErorr(schoolName, 'نام مدرسه باید فارسی باشد');
+                }
+            }
+        }
+        // Condition of School Adress
+        if (schoolAddressValue === '') {
+            schoolAddress.focus();
+            setErorr(schoolAddress, 'آدرس مدرسه را وارد کنید را وارد کنید');
+        } else {
+            if (schoolAddress.value.length > 20 && schoolAddress.value.length < 50) {
+                if (just_persian(schoolAddressValue)) {
+                    setSuccess(schoolAddress);
+                } else {
+                    setErorr(schoolAddress, 'آدرس مدرسه باید فارسی باشد');
+                }
+    
+            } else {
+                setErorr(schoolAddress, 'آدرس نه کوتاه باشد نه طولانی (حد وسط 20 تا 50 کلمه) ');
+            }
+        }
+        // Condition of phone school number
+        if (numberSchoolValue === '') {
+            numberSchool.focus();
+            setErorr(numberSchool, 'شماره تلفن مدرسه را وارد کنید');
+        } else {
+            setSuccess(numberSchool);
+        }
+        // Condition of phone manager number
+        if (numberManagerValue === '') {
+            numberManager.focus();
+            setErorr(numberManager, 'شماره تلفن مدیر مدرسه را وارد کنید');
+        } else {
+            setSuccess(numberManager);
+        }
+        // Condition of password
+        if (passwordValue === '') {
+            password.focus();
+            setErorr(password, 'رمز عبور خود را وارد کنید');
+        } else {
+            if (password.value.length < 8) {
+                setErorr(password, 'رمز عبور شما باید بیشتر از 8 کاراکتر باشد');
+            } else {
+                setSuccess(password);
+            }
+        }
+        // Condition of password2
+        if (password2Value === '') {
+            password2.focus();
+            setErorr(password2, 'تکرار رمز عبور خود را وارد کنید');
+        } else if (passwordValue !== password2Value) {
+            setErorr(password2, 'رمز عبور اشتباه وارد شده');
+        } else {
+            if (password2.value.length < 8) {
+                setErorr(password2, 'رمز عبور شما باید بیشتر از 8 کاراکتر باشد');
+            } else {
+                setSuccess(password2);
+            }
+        }
+    
+    }
+    const setErorr = (input, message) => {
+        input.classList.remove("border-0")
+        input.style.border = "2px solid #eb0b0b";
+        input.nextElementSibling.innerHTML = message;
+    }
+    const setSuccess = (input) => {
+        input.style.borderColor = "";
+        input.nextElementSibling.innerHTML = "";
+    }
+
+
+    // Back to top button-------------------------------------------
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
             $('.back-to-top').fadeIn('slow');

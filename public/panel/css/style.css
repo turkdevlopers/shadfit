@@ -383,8 +383,34 @@ box-shadow: 0 0.15rem 0.25rem #00000014 !important;
     border: 0px solid !important;
 }
 .left-button {
-    float: left !important;
+    float: right !important;
 }
+.scrolly-div {
+    max-height: 40rem;
+    overflow: auto;
+}
+
+/*------------------------------start  webkit-scrollbar----------------------------------------*/
+/* width */
+.scrolly-div::-webkit-scrollbar {
+ width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #6b55f9b0; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6b55f9; 
+}
+/* --------------------end webkit-scrollbar ----------------------------- */
 /*---------- Profil -------------*/
        /* Profil Image Upload */
   .avatar-upload {
@@ -438,4 +464,19 @@ box-shadow: 0 0.15rem 0.25rem #00000014 !important;
     background-repeat: no-repeat;
     background-position: center;
   }
-  
+  .form__label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #b3b3b3;
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+  }
+  .edit-color {
+   color:  grey !important;
+  }
+  .errortxt {
+      margin-right: 5px;
+      color: #eb0b0b;
+      font-weight: bold;
+  }

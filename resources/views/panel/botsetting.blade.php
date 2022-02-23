@@ -44,7 +44,7 @@
 
 </div>
 <div class="container-fluid pt-4 px-4 col-lg-10">
-    <div class="bg-light text-center rounded p-4 shadow-sm" id="items">
+    <div class="bg-light text-center rounded p-4 shadow-sm scrolly-div" id="items">
         {{-- <div class="bg-white shadow-sm text-center rounded p-4 mt-4">     
             <details>
                 <summary class="sum">
@@ -54,14 +54,15 @@
                 <form class="d-md-flex ms-4">
                     <input class="form-control mb-3 border-0 bg-light" type="text" placeholder="عنوان گزینه" aria-label="default input example">
                 </form>
-                <div class="d-flex">
+                <div class="d-flex justify-content-between align-items-center">
+                    <button type="button" class="btn btn-danger m-2">حذف این بخش</button>
                     <button type="button" class="btn btn-outline-link m-2 mt-4">راهنمای استفاده</button>
                 </div>
               </details>
 
         </div> --}}
-
-        {{-- <div class="bg-white shadow-sm text-center rounded p-4 mt-4">     
+{{-- 
+        <div class="bg-white shadow-sm text-center rounded p-4 mt-4">     
             <details>
                 <summary class="sum">
                     <h4>نظرسنجی</h4>
@@ -79,7 +80,8 @@
                         </div>
                     </div>
                 </form>
-                <div class="d-flex">
+                <div class="d-flex justify-content-between align-items-center">
+                    <button type="button" class="btn btn-danger m-2">حذف این بخش</button>
                     <button type="button" class="btn btn-outline-link m-2 mt-4">راهنمای استفاده</button>
                 </div>
               </details>
@@ -91,8 +93,8 @@
 
 </div>
 <br>
-<div class="d-block left-button">
-    <button type="button" class="btn btn-primary m-2">ثبت تغییرات</button>
+<div class="d-block text-center">
+    <button type="button" class="btn btn-primary btn-lg m-2 col-lg-2">ثبت تغییرات</button>
 </div>
 <br><br>
 </div>

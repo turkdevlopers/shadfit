@@ -92,11 +92,6 @@ function checkInput() {
             return false;
         }
     }
-    // Input Check Box
-    if(!checkBox.checked){
-        alert('شما باید شرایط و قوانین ما را بپذیرید !');
-        return false;
-    }
 }
 const setErorr = (input, message) => {
     input.style.borderColor = "#ef5350";
