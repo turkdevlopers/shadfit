@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Plan extends Model
 {
     use HasFactory;
+    protected $table = 'plan';
     public function package()
     {
-        return $this->hasOne('Package');
+        return $this->hasOne(\App\Models\Package::class);
     }
 }

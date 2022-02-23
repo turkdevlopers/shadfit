@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\panel;
+use App\Models\Order;
+use Morilog\Jalali\Jalalian;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,9 +18,9 @@ class PanelController extends Controller
     public function index(OrderController $order, Auth $auth)
     {
         $user = $auth::user();
-        //$service = User::find($user->id)->order;
-        //dd($service);
-        return view('panel.dashboard');
+        $service = User::find($user->id)->order->first();
+        
+        return view('panel.dashboard',compact('service'));
     }
     public function profile()
     {

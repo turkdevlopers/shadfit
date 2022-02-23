@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ServiceController::class, 'shadfit'])->name('service.shadfit');
 Route::get('/order', [OrderController::class, 'record_index']);
-Route::get('/test', function () {
-    return view('tmp');
-});
+Route::get('/plans', function () {
+    return view('service.plans');
+})->name('plans');
 Auth::routes();
 
 Route::prefix('admin')->middleware("auth")->group(function () {

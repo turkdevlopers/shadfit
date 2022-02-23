@@ -11,10 +11,14 @@ class Order extends Model
     protected $table = 'order';
     public function payed()
     {
-        return $this->hasOne('Payed');
+        return $this->hasOne(\App\Models\Payed::class);
     }
     public function user()
     {
         return $this->belongsTo('User');
+    }
+    public function package()
+    {
+        return $this->belongsTo(\App\Models\Package::class);
     }
 }

@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ActiveService extends Model
 {
     use HasFactory;
-    public function paid()
+    protected $table = 'activeservice';
+    public function payed()
     {
-        return $this->belongsTo('Payed');
+        return $this->belongsTo(\App\Models\Payed::class);
     }
 }

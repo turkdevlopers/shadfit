@@ -8,12 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Payed extends Model
 {
     use HasFactory;
+    protected $table = 'payed';
     public function activeservice()
     {
-        return $this->hasOne('ActiveService');
+        return $this->hasOne(\App\Models\ActiveService::class);
     }
     public function order()
     {
-        return $this->belongsTo('Order');
+        return $this->belongsTo(\App\Models\Order::class);
     }
 }

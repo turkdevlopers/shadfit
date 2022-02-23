@@ -7,9 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Package extends Model
 {
+    protected $table = 'package';
     use HasFactory;
     public function order()
     {
-        return $this->hasOne('Order');
+        return $this->hasOne(\App\Models\Order::class);
+    }
+    public function plan()
+    {
+        return $this->belongsTo(\App\Models\Plan::class);
     }
 }
