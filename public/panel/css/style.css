@@ -350,17 +350,8 @@ margin-top: -2px;
   .mask.full,
   .circle .fill {
     animation: fill ease-in-out 4s;
-    transform: rotate(130deg);
   }
   
-  @keyframes fill{
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(130deg);
-    }
-  }
   /*-----bot setting-------*/
   .disabled-div {
     pointer-events: none;

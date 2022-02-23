@@ -3,6 +3,15 @@ if ($service) {
     $endTime = $service->payed->activeservice->end;
     $startTime = $service->payed->activeservice->start;
     $serviceType = $service->package->type;
+
+    $futur = strtotime($service->payed->activeservice->end); //Future date.
+    $timefromdb = strtotime('now');
+    $timeleft = $futur-$timefromdb;
+    $daysleft = round((($timeleft/24)/60)/60);
+
+    $period = $service->package->plan->period;
+    $chartDegree = (( $daysleft* 360 ) / $period) / 2 ;
+
     switch ($serviceType) {
     case "simple":
     $serviceType = 'عادی';
@@ -55,7 +64,19 @@ if ($service) {
                     <h5>{{$service->package->price}} تومان از {{$service->package->plan->name}} {{$serviceType}} شادفیت</h5>
                 <img src="{{asset("panel/img/cloud.png")}}" alt="cloud" style="width: 161px;margin-top: 27px;">
                 </div>
-                
+                <style>
+                    .mask.full, .circle .fill {
+                        transform: rotate({{$chartDegree}}deg) !important;
+                    }
+                    @keyframes fill{
+                        0% {
+                            transform: rotate(0deg);
+                        }
+                        100% {
+                            transform: rotate({{$chartDegree}}deg);
+                        }
+                    }
+                </style>
                 <div class="d-block">
                     <div class="circle-wrap shadow-sm">
                         <div class="circle">
@@ -65,7 +86,7 @@ if ($service) {
                             <div class="mask half">
                                 <div class="fill"></div>
                             </div>
-                            <div class="inside-circle"><span>3</span>
+                            <div class="inside-circle"><span>{{$daysleft}}</span>
                                 <p>روز مانده</p>
                             </div>
                         </div>
@@ -73,7 +94,7 @@ if ($service) {
                     <br>
                     <div class="all-Time">
                         <h5>روز باقیمانده</h5>
-                        <p class="bold">زمان کل سرویس : {{$service->package->plan->period}} روز</p>
+                        <p class="bold">زمان کل سرویس : {{$period}} روز</p>
                     </div>
                 </div>
             </div>
