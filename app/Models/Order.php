@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+    protected $table = 'order';
     public function payed()
     {
         return $this->hasOne('Payed');

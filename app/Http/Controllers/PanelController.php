@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\panel;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PanelController extends Controller
 {
@@ -12,8 +14,11 @@ class PanelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(OrderController $order, Auth $auth)
     {
+        $user = $auth::user();
+        //$service = User::find($user->id)->order;
+        //dd($service);
         return view('panel.dashboard');
     }
     public function profile()
