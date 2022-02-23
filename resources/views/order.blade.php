@@ -100,40 +100,11 @@
                                             <script>
                                                 var Islogin = true;
                                             </script>
-                                            <div class="form-inline col-lg-12 taraz">
-                                                <div
-                                                    class="control-form form-group d-block col-lg-6 col-md-6 col-sm-10 col-7">
-                                                    <h5 class="d-flex">نام کاربری: </h5>
-                                                    <input type="text" class="form-control" id="username"
-                                                        placeholder="نام کاربری را وارد کنید"
-                                                        aria-label="Sizing example input"
-                                                        aria-describedby="inputGroup-sizing-sm">
-                                                    <small class="errortxt"></small>
-                                                </div>
-                                                <div
-                                                    class="control-form form-group d-block col-lg-6 col-md-6 col-sm-10 col-7">
-                                                    <h5 class="d-flex">رمز عبور :</h5>
-                                                    <input type="password" class="form-control" id="password"
-                                                        aria-label="Sizing example input"
-                                                        aria-describedby="inputGroup-sizing-sm" placeholder="رمز عبور"
-                                                        min="0" />
-                                                    <small class="errortxt"></small>
-                                                </div>
-
-                                            </div>
-                                            <br>
-                                            <div
-                                                class="control-form form-block d-block col-lg-12 col-md-12 col-sm-10 col-7">
-                                                <h5 class="d-flex">تکرار رمز عبور: </h5>
-                                                <input type="password" class="form-control" id="password2"
-                                                    placeholder="تکرار رمز عبور" aria-label="Sizing example input"
-                                                    aria-describedby="inputGroup-sizing-sm">
-                                                <small class="errortxt"></small>
-                                            </div>
                                         <br>
                                     </div>
                                     @endauth
                                     {{-- when user loged out --}}
+                                    @guest
                                     <div class="part1">
                                         <div class="form-inline col-lg-12 taraz">
                                             <div
@@ -222,6 +193,7 @@
                                     </div>
 
                                     <br><br>
+                                    @endguest
                                     {{-- part two --}}
                                     <div class="part2">
                                         <div class="d-block">
