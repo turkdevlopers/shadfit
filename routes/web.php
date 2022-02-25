@@ -26,6 +26,7 @@ Auth::routes();
 
 Route::prefix('admin')->middleware("auth")->group(function () {
     Route::get('/', [PanelController::class, 'index'])->name('panel');
-    Route::get('/botsetting', function () {return view('panel.botsetting');})->name('botsetting')->middleware("payed");
+    Route::get('/botsetting', [PanelController::class, 'botsetting'])->name('botsetting')->middleware("payed");
     Route::get('/profile', [PanelController::class, 'profile'])->name("profile");
+    Route::post('/profile', [PanelController::class, 'profileUpdate'])->name("profileupdata");
 });

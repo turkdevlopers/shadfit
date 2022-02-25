@@ -1,11 +1,10 @@
 @php
 if ($service) {
     $endTime = $service->payed->activeservice->end;
-    $startTime = $service->payed->activeservice->start;
     $serviceType = $service->package->type;
 
-    $futur = strtotime($service->payed->activeservice->end); //Future date.
-    $timefromdb = strtotime('now');
+    $futur = strtotime($endTime); //Future date.
+    $timefromdb = strtotime('today');
     $timeleft = $futur-$timefromdb;
     $daysleft = round((($timeleft/24)/60)/60);
 

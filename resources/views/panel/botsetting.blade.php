@@ -41,7 +41,7 @@
 <div option_id="7"  option_name="نظرسنجی" class="bg-light text-center rounded p-4 shadow-sm col-lg-12 mb-2 opt">
     <h5 class="mb-0">نظرسنجی</h5>
 </div>
-
+<x-bot-options-component package-id="2" />
 </div>
 <div class="container-fluid pt-4 px-4 col-lg-10">
     <div class="bg-light text-center rounded p-4 shadow-sm scrolly-div" id="items">
