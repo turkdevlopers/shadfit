@@ -471,3 +471,15 @@ box-shadow: 0 0.15rem 0.25rem #00000014 !important;
       color: #eb0b0b;
       font-weight: bold;
   }
+  /*------invoice style page-------*/
+  .f-2 {
+      font-size: 20px;
+  }
+  .small-text {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #b3b3b3;
+  }
+  .line-hight {
+   line-height: 50px;
+  }
