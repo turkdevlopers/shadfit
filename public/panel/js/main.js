@@ -42,11 +42,12 @@ $(".pjaxmenu a").click(function () {
 
 sortIt();
 botsetting_js();
+profile_js();
 $(document).ajaxComplete(function () {
     /**function place */
     sortIt();
     botsetting_js();
-    checkInput();
+    profile_js();
 });
 
 
@@ -102,7 +103,7 @@ function voting(name) {
     return `  <div class="bg-white shadow-sm text-center rounded p-4 mt-4"> <details> <summary class="sum"> <h4>${name}</h4> </summary> <br><form class="ms-4"> <input class="form-control mb-3 border-0 bg-light" type="text" placeholder="عنوان گزینه" aria-label="default input example"> <div class="d-md-flex col-lg-12"> <div class="col-lg-8 col-md-6 new_chq"> <input class="form-control mb-3 border-0 bg-light" type="text" placeholder="نام کاندید" aria-label="default input example"> </div><div class="col-lg-4 col-md-6"> <button type="button" add-placeholder="نام کاندید" class="btn btn-outline-success m-2 border-delet add-btn">افزودن کاندید <i class="fa fa-plus ms-2"></i></button> <button type="button" class="btn btn-outline-danger m-2 border-delet remove-btn">حذف کاندید <i class="fa fa-minus ms-2"></i></button> </div></div></form>  <div class="d-flex justify-content-between align-items-center"> <button type="button" class="btn btn-danger m-2 part-remove">حذف این بخش</button> <button type="button" class="btn btn-outline-link m-2 mt-4">راهنمای استفاده</button> </div></details> </div>` ;
 }
 
-
+function profile_js() {
     //Profil Image Upload
     function readURL(input) {
         if (input.files && input.files[0]) {
@@ -142,6 +143,7 @@ function voting(name) {
     form.addEventListener('submit', (event) => {
         event.preventDefault();
         checkInput();
+        form.submit();
     });
     function checkInput() {
         const schoolNameValue = schoolName.value.trim();
@@ -171,7 +173,7 @@ function voting(name) {
             schoolAddress.focus();
             setErorr(schoolAddress, 'آدرس مدرسه را وارد کنید را وارد کنید');
         } else {
-            if (schoolAddress.value.length > 20 && schoolAddress.value.length < 50) {
+            if (schoolAddress.value.length > 10 && schoolAddress.value.length < 225) {
                 if (just_persian(schoolAddressValue)) {
                     setSuccess(schoolAddress);
                 } else {
@@ -232,6 +234,7 @@ function voting(name) {
         input.nextElementSibling.innerHTML = "";
     }
 
+}
 
     // Back to top button-------------------------------------------
     $(window).scroll(function () {
