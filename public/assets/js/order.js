@@ -17,19 +17,24 @@ const numStudent = document.querySelector("#numOff");
 const schoolAddress = document.querySelector("#address");
 const numberSchool = document.querySelector("#numSchool");
 const numberManager = document.querySelector("#numPerson");
+if (!Islogin) {
 const userName = document.querySelector("#username");
 const password = document.querySelector("#password");
 const password2 = document.querySelector("#password2");
+}
+
 const firstPrice = document.querySelector("#first-price");
 const addPrice = document.querySelector("#add-price");
 const lastPrice = document.querySelector("#last-price");
 const plans = document.querySelector("#plans");
 
-
+console.log(Islogin);
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-    checkInput();
+    if (checkInput() !== false) {
+        form.submit();
+    }
 });
 function checkInput() {
     const schoolNameValue = schoolName.value.trim();
@@ -37,22 +42,26 @@ function checkInput() {
     const schoolAddressValue = schoolAddress.value.trim();
     const numberSchoolValue = numberSchool.value.trim();
     const numberManagerValue = numberManager.value.trim();
+    if (!Islogin) {
     const userNameValue = userName.value.trim();
     const passwordValue = password.value.trim();
     const password2Value = password2.value.trim();
+    }
     // Condition of school name
     if (schoolNameValue === '') {
         schoolName.focus();
         setErorr(schoolName, 'نام مدرسه را وارد کنید');
     }
     else {
-        if (schoolName.value.length > 13) {
+        if (schoolName.value.length > 50) {
             setErorr(schoolName, 'نام مدرسه طوالانی هست');
+            return false;
         } else {
             if (just_persian(schoolNameValue)) {
                 setSuccess(schoolName);
             } else {
                 setErorr(schoolName, 'نام مدرسه باید فارسی باشد');
+                return false;
             }
         }
     }
@@ -60,6 +69,7 @@ function checkInput() {
     if (numStudentValue === '') {
         numStudent.focus();
         setErorr(numStudent, 'تعداد دانش آموز را وارد کنید');
+        return false;
     } else {
         setSuccess(numStudent);
     }
@@ -67,22 +77,26 @@ function checkInput() {
     if (schoolAddressValue === '') {
         schoolAddress.focus();
         setErorr(schoolAddress, 'آدرس مدرسه را وارد کنید را وارد کنید');
+        return false;
     } else {
         if (schoolAddress.value.length > 20 && schoolAddress.value.length < 50) {
             if (just_persian(schoolAddressValue)) {
                 setSuccess(schoolAddress);
             } else {
                 setErorr(schoolAddress, 'آدرس مدرسه باید فارسی باشد');
+                return false;
             }
 
         } else {
             setErorr(schoolAddress, 'آدرس نه کوتاه باشد نه طولانی (حد وسط 20 تا 50 کلمه) ');
+            return false;
         }
     }
     // Condition of phone school number
     if (numberSchoolValue === '') {
         numberSchool.focus();
         setErorr(numberSchool, 'شماره تلفن مدرسه را وارد کنید');
+        return false;
     } else {
         setSuccess(numberSchool);
     }
@@ -90,16 +104,20 @@ function checkInput() {
     if (numberManagerValue === '') {
         numberManager.focus();
         setErorr(numberManager, 'شماره تلفن مدیر مدرسه را وارد کنید');
+        return false;
     } else {
         setSuccess(numberManager);
     }
-    // Condition of password
+    if (!Islogin) {
+            // Condition of password
     if (passwordValue === '') {
         password.focus();
         setErorr(password, 'رمز عبور خود را وارد کنید');
+        return false;
     } else {
         if (password.value.length < 8) {
             setErorr(password, 'رمز عبور شما باید بیشتر از 8 کاراکتر باشد');
+            return false;
         } else {
             setSuccess(password);
         }
@@ -108,11 +126,14 @@ function checkInput() {
     if (password2Value === '') {
         password2.focus();
         setErorr(password2, 'تکرار رمز عبور خود را وارد کنید');
+        return false;
     } else if (passwordValue !== password2Value) {
         setErorr(password2, 'رمز عبور اشتباه وارد شده');
+        return false;
     } else {
         if (password2.value.length < 8) {
             setErorr(password2, 'رمز عبور شما باید بیشتر از 8 کاراکتر باشد');
+            return false;
         } else {
             setSuccess(password2);
         }
@@ -122,14 +143,18 @@ function checkInput() {
     if (userNameValue === '') {
         userName.focus();
         setErorr(userName, 'نام کاربری را وارد کنید');
+        return false;
     } else {
         if ((new RegExp("^[a-zA-Z0-9_]{5,}[a-zA-Z]+[0-9]*$")).test(userNameValue)) {
             setSuccess(userName);
         } else {
             setErorr(userName, 'نامعتبر : نام کاربری باید با لاتین نوشته شود');
+            return false;
         }
     }
 }
+    }
+
 const setErorr = (input, message) => {
     input.style.borderColor = "#ef5350";
     input.nextElementSibling.innerHTML = message;
@@ -151,7 +176,8 @@ plans.addEventListener("change", function (e) {
     firstPrice.innerHTML = numberWithCommas(num * plan);
     lastPrice.innerHTML = numberWithCommas((num * plan) + 3000);
 });
-userName.addEventListener("focusout", (event) => {
+if (!Islogin) {
+    userName.addEventListener("focusout", (event) => {
     var sendRequest = new XMLHttpRequest();
     sendRequest.open("GET", UserCheckApiUrl + "/" + userName.value.trim());
     sendRequest.send();
@@ -160,3 +186,4 @@ userName.addEventListener("focusout", (event) => {
         setErorr(userName, result.Message);
     }
 });
+}

@@ -228,8 +228,7 @@
                                             <h6><span id="last-price">0</span> تومان</h6>
                                         </div>
                                         <br>
-                                        <div class="col-xl-6 col-md-12 col-sm-12 sub-div"><button
-                                                class="custom-btn btn-11">ثبت سفارش</button></div>
+                                        <div class="col-xl-6 col-md-12 col-sm-12 sub-div"><button type="submit" class="custom-btn btn-11">ثبت سفارش</button></div>
 
                                     </div>
                                 </div>
