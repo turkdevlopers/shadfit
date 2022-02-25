@@ -58,11 +58,11 @@ function botsetting_js(){
     $('.opt').click(function (ev) {
        var optionName = this.getAttribute('option_name');
        var optionId = this.getAttribute('option_id') * 1;
-        if (optionId <= 5 && optionName != null ) {
+        if (optionName != null ) {
             var result = hamgam(optionName);
             $('#items').append(result);
         }
-        if (optionId === 7 && optionName != null ) {
+        if (optionId === 8 && optionName != null ) {
             var result = survey(optionName);
             $('#items').append(result);
         }
@@ -142,8 +142,9 @@ function profile_js() {
     
     form.addEventListener('submit', (event) => {
         event.preventDefault();
-        checkInput();
-        form.submit();
+        if (checkInput() !== false) {
+            form.submit();
+        }
     });
     function checkInput() {
         const schoolNameValue = schoolName.value.trim();
@@ -156,15 +157,18 @@ function profile_js() {
         if (schoolNameValue === '') {
             schoolName.focus();
             setErorr(schoolName, 'نام مدرسه را وارد کنید');
+            return false;
         }
         else {
             if (schoolName.value.length > 13) {
                 setErorr(schoolName, 'نام مدرسه طوالانی هست');
+                return false;
             } else {
                 if (just_persian(schoolNameValue)) {
                     setSuccess(schoolName);
                 } else {
                     setErorr(schoolName, 'نام مدرسه باید فارسی باشد');
+                    return false;
                 }
             }
         }
@@ -172,22 +176,26 @@ function profile_js() {
         if (schoolAddressValue === '') {
             schoolAddress.focus();
             setErorr(schoolAddress, 'آدرس مدرسه را وارد کنید را وارد کنید');
+            return false;
         } else {
             if (schoolAddress.value.length > 10 && schoolAddress.value.length < 225) {
                 if (just_persian(schoolAddressValue)) {
                     setSuccess(schoolAddress);
                 } else {
                     setErorr(schoolAddress, 'آدرس مدرسه باید فارسی باشد');
+                    return false;
                 }
     
             } else {
                 setErorr(schoolAddress, 'آدرس نه کوتاه باشد نه طولانی (حد وسط 20 تا 50 کلمه) ');
+                return false;
             }
         }
         // Condition of phone school number
         if (numberSchoolValue === '') {
             numberSchool.focus();
             setErorr(numberSchool, 'شماره تلفن مدرسه را وارد کنید');
+            return false;
         } else {
             setSuccess(numberSchool);
         }
@@ -195,6 +203,7 @@ function profile_js() {
         if (numberManagerValue === '') {
             numberManager.focus();
             setErorr(numberManager, 'شماره تلفن مدیر مدرسه را وارد کنید');
+            return false;
         } else {
             setSuccess(numberManager);
         }
@@ -202,9 +211,11 @@ function profile_js() {
         if (passwordValue === '') {
             password.focus();
             setErorr(password, 'رمز عبور خود را وارد کنید');
+            return false;
         } else {
             if (password.value.length < 8) {
                 setErorr(password, 'رمز عبور شما باید بیشتر از 8 کاراکتر باشد');
+                return false;
             } else {
                 setSuccess(password);
             }
@@ -213,11 +224,14 @@ function profile_js() {
         if (password2Value === '') {
             password2.focus();
             setErorr(password2, 'تکرار رمز عبور خود را وارد کنید');
+            return false;
         } else if (passwordValue !== password2Value) {
             setErorr(password2, 'رمز عبور اشتباه وارد شده');
+            return false;
         } else {
             if (password2.value.length < 8) {
                 setErorr(password2, 'رمز عبور شما باید بیشتر از 8 کاراکتر باشد');
+                return false;
             } else {
                 setSuccess(password2);
             }

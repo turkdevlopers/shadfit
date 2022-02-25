@@ -2,18 +2,20 @@
 
 namespace App\View\Components;
 
+use App\Models\Package;
 use Illuminate\View\Component;
 
 class BotOptionsComponent extends Component
 {
+    public $options;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($packageId)
     {
-        //
+        $this->options =json_decode(Package::find($packageId)->options);
     }
 
     /**

@@ -9,39 +9,7 @@
 <div class="bot-setting">
 <div class="d-flex col-lg-12">
 <div class="col-lg-2 tu user-select-none" id="bars">
-<div option_id="1"  option_name="مشاهده کارنامه" class="bg-light text-center rounded p-4 shadow-sm col-lg-12 mb-2 opt">
-       <h5 class="mb-0">مشاهده کارنامه</h5>
-</div>
-
-<div option_id="2"  option_name="سامانه همگام" class="bg-light text-center rounded p-4 shadow-sm col-lg-12 mb-2 opt">
-    <h5 class="mb-0">سامانه همگام</h5>
-</div>
-
-<div option_id="3"  option_name="سرویس آموزشی" class="bg-light text-center rounded p-4 shadow-sm col-lg-12 mb-2 opt">
-    <h5 class="mb-0">سرویس آموزشی</h5>
-</div>
-
-<div option_id="4"  option_name="شماره صندلی" class="bg-light text-center rounded p-4 shadow-sm col-lg-12 mb-2 opt">
-    <h5 class="mb-0">شماره صندلی</h5>
-</div>
-
-<div option_id=""  option_name="پیش ثبت نام" class="bg-light text-center rounded p-4 shadow-sm col-lg-12 mb-2 disabled-div opt">
-    <h5 class="mb-0">پیش ثبت نام</h5>
-</div>
-<div option_id="5"  option_name="برنامه هفتگی" class="bg-light text-center rounded p-4 shadow-sm col-lg-12 mb-2 opt">
-    <h5 class="mb-0">برنامه هفتگی</h5>
-</div>
-
-<div  option_id="6"  option_name="رای گیری"class="bg-light text-center rounded p-4 shadow-sm col-lg-12 mb-2 opt">
-    <h5 class="mb-0">رای گیری</h5>
-</div>
-
-
-
-<div option_id="7"  option_name="نظرسنجی" class="bg-light text-center rounded p-4 shadow-sm col-lg-12 mb-2 opt">
-    <h5 class="mb-0">نظرسنجی</h5>
-</div>
-<x-bot-options-component package-id="2" />
+<x-bot-options-component packageId="{{$package->id}}"/>
 </div>
 <div class="container-fluid pt-4 px-4 col-lg-10">
     <div class="bg-light text-center rounded p-4 shadow-sm scrolly-div" id="items">

@@ -72,9 +72,9 @@
                 <div class="navbar-nav w-100 menu pjaxmenu">
                     <br><a href="{{route("panel")}}" class="nav-item nav-link @yield('dashboard')"><i class="fa fa-tachometer-alt me-2"></i>داشبورد </a><br>
                     <a href="{{route("botsetting")}}" class="nav-item nav-link @yield('botsetting')"><i class="fa fa-laptop me-2"></i>تنظیمات ربات</a><br>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i> مشاهده آمار</a><br>
-                    <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i> صورت حساب</a><br>
-                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-plus me-2"></i> افزودن دانش آموز
+                    <a href="{{route("results")}}" class="nav-item nav-link @yield('results')"><i class="fa fa-chart-bar me-2"></i> مشاهده آمار</a><br>
+                    <a href="{{route("invoice")}}" class="nav-item nav-link @yield('invoice')"><i class="fa fa-th me-2"></i> صورت حساب</a><br>
+                    <a href="{{route("add")}}" class="nav-item nav-link @yield('add')"><i class="fa fa-plus me-2"></i> افزودن دانش آموز
                     </a><br>
                 </div>
             </nav>

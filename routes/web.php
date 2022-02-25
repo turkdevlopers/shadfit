@@ -28,5 +28,8 @@ Route::prefix('admin')->middleware("auth")->group(function () {
     Route::get('/', [PanelController::class, 'index'])->name('panel');
     Route::get('/botsetting', [PanelController::class, 'botsetting'])->name('botsetting')->middleware("payed");
     Route::get('/profile', [PanelController::class, 'profile'])->name("profile");
+    Route::get('/invoice', [PanelController::class, 'invoice'])->name("invoice");
+    Route::get('/results', [PanelController::class, 'results'])->name("results");
+    Route::get('/add', [PanelController::class, 'add'])->name("add");
     Route::post('/profile', [PanelController::class, 'profileUpdate'])->name("profileupdata");
 });
