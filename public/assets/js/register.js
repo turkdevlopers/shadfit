@@ -18,7 +18,7 @@ const checkBox =document.querySelector ("#check-box");
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-    if (checkInput()) {
+    if (checkInput() !== false) {
         form.submit();
     }
 });
@@ -33,10 +33,12 @@ function checkInput() {
     if (schoolNameValue === '') {
         schoolName.focus();
         setErorr(schoolName, 'نام مدرسه را وارد کنید');
+        return false;
     }
     else {
         if (schoolName.value.length > 35) {
             setErorr(schoolName, 'نام مدرسه طوالانی هست');
+            return false;
         } else {
             if (just_persian(schoolNameValue)) {
                 setSuccess(schoolName);
@@ -50,6 +52,7 @@ function checkInput() {
     if (numberManagerValue === '') {
         numberManager.focus();
         setErorr(numberManager, 'شماره تلفن مدیر مدرسه را وارد کنید');
+        return false;
     } else {
         setSuccess(numberManager);
     }
@@ -57,9 +60,11 @@ function checkInput() {
     if (passwordValue === '') {
         password.focus();
         setErorr(password, 'رمز عبور خود را وارد کنید');
+        return false;
     } else {
         if (password.value.length < 8) {
             setErorr(password, 'رمز عبور شما باید بیشتر از 8 کاراکتر باشد');
+            return false;
         } else {
             setSuccess(password);
         }
@@ -68,15 +73,16 @@ function checkInput() {
     if (password2Value === '') {
         password2.focus();
         setErorr(password2, 'تکرار رمز عبور خود را وارد کنید');
+        return false;
     } else if (passwordValue !== password2Value) {
         setErorr(password2, 'رمز عبور اشتباه وارد شده');
+        return false;
     } else {
         if (password2.value.length < 8) {
             setErorr(password2, 'رمز عبور شما باید بیشتر از 8 کاراکتر باشد');
             return false;
         } else {
             setSuccess(password2);
-            return true;
         }
     }
 
@@ -84,6 +90,7 @@ function checkInput() {
     if (userNameValue === '') {
         userName.focus();
         setErorr(userName, 'نام کاربری را وارد کنید');
+        return false;
     } else {
         if ((new RegExp("^[a-zA-Z0-9_]{5,}[a-zA-Z]+[0-9]*$")).test(userNameValue)) {
             setSuccess(userName);
