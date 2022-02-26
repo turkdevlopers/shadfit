@@ -66,7 +66,7 @@ class PanelController extends Controller
     * @return \Illuminate\Http\Response
     */
    public function add()
-   {
+    {
        return view('panel.add');
     }
      /**

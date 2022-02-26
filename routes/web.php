@@ -29,7 +29,7 @@ Route::prefix('admin')->middleware("auth")->group(function () {
     Route::get('/botsetting', [PanelController::class, 'botsetting'])->name('botsetting')->middleware("payed");
     Route::get('/profile', [PanelController::class, 'profile'])->name("profile");
     Route::get('/invoice', [PanelController::class, 'invoice'])->name("invoice");
-    Route::get('/results', [PanelController::class, 'results'])->name("results");
-    Route::get('/add', [PanelController::class, 'add'])->name("add");
+    Route::get('/results', [PanelController::class, 'results'])->name("results")->middleware("payed");
+    Route::get('/add', [PanelController::class, 'add'])->name("add")->middleware("payed");
     Route::post('/profile', [PanelController::class, 'profileUpdate'])->name("profileupdata");
 });
