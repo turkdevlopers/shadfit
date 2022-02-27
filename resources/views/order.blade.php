@@ -190,8 +190,10 @@
                                                 <small class="errortxt"></small>
                                             </div>
                                         <br>
+                                        <script>
+                                            var Islogin = false;
+                                        </script>
                                     </div>
-
                                     <br><br>
                                     @endguest
                                     {{-- part two --}}

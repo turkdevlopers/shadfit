@@ -17,24 +17,24 @@ const numStudent = document.querySelector("#numOff");
 const schoolAddress = document.querySelector("#address");
 const numberSchool = document.querySelector("#numSchool");
 const numberManager = document.querySelector("#numPerson");
-if (!Islogin) {
+
 const userName = document.querySelector("#username");
 const password = document.querySelector("#password");
 const password2 = document.querySelector("#password2");
-}
+
 
 const firstPrice = document.querySelector("#first-price");
 const addPrice = document.querySelector("#add-price");
 const lastPrice = document.querySelector("#last-price");
 const plans = document.querySelector("#plans");
 
-console.log(Islogin);
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     if (checkInput() !== false) {
         form.submit();
     }
+    // checkInput();
 });
 function checkInput() {
     const schoolNameValue = schoolName.value.trim();
@@ -43,10 +43,11 @@ function checkInput() {
     const numberSchoolValue = numberSchool.value.trim();
     const numberManagerValue = numberManager.value.trim();
     if (!Islogin) {
-    const userNameValue = userName.value.trim();
-    const passwordValue = password.value.trim();
-    const password2Value = password2.value.trim();
+            const userNameValue = userName.value.trim();
+           const passwordValue = password.value.trim();
+           const password2Value = password2.value.trim();
     }
+
     // Condition of school name
     if (schoolNameValue === '') {
         schoolName.focus();
@@ -153,7 +154,7 @@ function checkInput() {
         }
     }
 }
-    }
+}
 
 const setErorr = (input, message) => {
     input.style.borderColor = "#ef5350";
@@ -176,7 +177,6 @@ plans.addEventListener("change", function (e) {
     firstPrice.innerHTML = numberWithCommas(num * plan);
     lastPrice.innerHTML = numberWithCommas((num * plan) + 3000);
 });
-if (!Islogin) {
     userName.addEventListener("focusout", (event) => {
     var sendRequest = new XMLHttpRequest();
     sendRequest.open("GET", UserCheckApiUrl + "/" + userName.value.trim());
@@ -186,4 +186,3 @@ if (!Islogin) {
         setErorr(userName, result.Message);
     }
 });
-}
