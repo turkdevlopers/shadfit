@@ -17,10 +17,10 @@ class OrderController extends Controller
         return Order::all();
     }
 
-    public function record_index(){
+    public function record_index($id){
+        $selected = $id;
         $UserCheckApi = route("UserCheckApi","");
-
-        return view('Order', compact("UserCheckApi"));
+        return view('Order', compact("UserCheckApi","selected"));
     }
 
     /**
