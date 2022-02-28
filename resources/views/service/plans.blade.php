@@ -43,7 +43,7 @@
                             </div>
                         </div>
                         <div class="footer">
-                            <a href="#" class="btn btn-pricing btn-block">ثبت سفارش</a>
+                            <a href="{{ route('order','1') }}" class="btn btn-pricing btn-block">ثبت سفارش</a>
                         </div>
                     </div>
                 </div>
