@@ -17,7 +17,6 @@ const numStudent = document.querySelector("#numOff");
 const schoolAddress = document.querySelector("#address");
 const numberSchool = document.querySelector("#numSchool");
 const numberManager = document.querySelector("#numPerson");
-
 const userName = document.querySelector("#username");
 const password = document.querySelector("#password");
 const password2 = document.querySelector("#password2");

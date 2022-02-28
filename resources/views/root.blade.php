@@ -27,8 +27,8 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="300">
       <div class="container">
-        <a href="#" class="navbar-brand">شاد<span class="text-primary"> فیت </span></a>
-
+        <img class="rounded-circle" src="{{ asset('assets/img/shadfit.png') }}" alt="school" width="7%">
+        <a href="#" class="navbar-brand"><h4 class="font-weight-bold">شاد<span class="text-primary"> فیت </span></h4></a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
