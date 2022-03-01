@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ServiceController::class, 'shadfit'])->name('service.shadfit');
-Route::get('/order/{id}', [OrderController::class, 'record_index'])->name('order');
+Route::get('/order/{id}', [OrderController::class, 'record_index'])->name('order')->middleware("activeorder");
+Route::post('/order', [OrderController::class, 'store'])->name('orderstore')->middleware("activeorder");
 Route::get('/plans', function () {
     return view('service.plans');
 })->name('plans');

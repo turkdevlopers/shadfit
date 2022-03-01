@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Package;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -17,10 +19,11 @@ class OrderController extends Controller
         return Order::all();
     }
 
-    public function record_index($id){
+    public function record_index($id)
+    {
         $selected = $id;
-        $UserCheckApi = route("UserCheckApi","");
-        return view('Order', compact("UserCheckApi","selected"));
+        $UserCheckApi = route("UserCheckApi", "");
+        return view('Order', compact("UserCheckApi", "selected"));
     }
 
     /**
@@ -39,9 +42,41 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Order $order)
     {
-        //
+        
+        if (Auth::user()) {
+            //validation rules
+            $user = Auth::user();
+            $request->validate([
+                'school_name' => 'required|min:4|string|max:45',
+                'service' => 'required',
+                'students_number' => 'required|min:40|max:2000|numeric',
+                'address' => 'required|min:10|string|max:255',
+                'mobile' => "required|numeric|min:11|unique:users,mobile,$user->id",
+                'phone' => "required|numeric|min:11|unique:users,phone,$user->id",
+            ]);
+
+            if($package = Package::where('price','=',$request->service)->first()){
+                $user->school_name = $request['school_name'];
+                $user->address = $request['address'];
+                $user->mobile = $request['mobile'];
+                $user->phone = $request['phone'];
+                $user->save();
+
+                $order->user_id = $user->id;
+                $order->package_id = $package->id;
+                $order->satuse = 0;
+                $order->students_number = $request->students_number;
+                $order->order_price = $package->price * $request->students_number;
+                $order->save();
+                return redirect(route('panel'));
+            }else{
+                return back()->with('message', 'سرویس مورد نظر یافت نشد');
+            }
+        }else{
+            dd('not devloped');
+        }
     }
 
     /**
