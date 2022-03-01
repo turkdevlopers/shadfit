@@ -31,9 +31,8 @@
             </div>
             @endif
         @endforeach
-        @if (count($payments) == 0)
+        @if (!$payment->payed)
             هیچ فاکتور پرداخت شده ای یافت نشد
         @endif
-        
     </div>
 </div>

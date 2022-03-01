@@ -1,4 +1,19 @@
 @if ($invoice)
+@php
+    $serviceType = $invoice->package->type;
+    switch ($serviceType) {
+    case "simple":
+    $serviceType = 'عادی';
+        break;
+    case "normal":
+    $serviceType = 'معمولی';
+        break;
+    case "professional":
+    $serviceType = 'حرفه ای';
+        break;
+    }
+@endphp
+
     <div class="d-flex align-items-center justify-content-between rounded-top shadow-sm p-4 text-white bg-primary"
         style="opacity: 0.75;">
         <h4 class="text-light mb-0">فاکتور نهایی شما</h4>
@@ -12,10 +27,10 @@
                         <h5>خریدار</h5>&nbsp;&nbsp;<span class="f-2">{{$user->school_name}}</span>
                     </div><br>
                     <div class="tariff d-flex">
-                        <h5>نوع تعرفه</h5>&nbsp;&nbsp;<span class="f-2">تعرفه سه ماهه عادی {{$invoice->package->price}} تومان</span>
+                        <h5>نوع تعرفه</h5>&nbsp;&nbsp;<span class="f-2">تعرفه {{$invoice->package->plan->period}} روزه {{$serviceType}} {{$invoice->package->price}} تومان</span>
                     </div><br>
                     <div class="num-student d-flex">
-                        <h5>تعداد دانش آموز</h5>&nbsp;&nbsp;<span class="f-2">{{$invoice->student_number}}</span>
+                        <h5>تعداد دانش آموز</h5>&nbsp;&nbsp;<span class="f-2">{{$invoice->students_number}}</span>
                     </div><br>
                 </div>
                 <div class="prices col-lg-4">
@@ -25,7 +40,7 @@
                     <div class="tariff d-flex">
                         <h5>مالیات و ارزش افزوده</h5>&nbsp;&nbsp;<span class="f-2">3.000 تومان</span>
                     </div><br>
-                    <div class="num-student d-flex">number_format(
+                    <div class="num-student d-flex">
                         <h5>مبلغ قابل پرداخت</h5>&nbsp;&nbsp;<span class="f-2">{{number_format($invoice->order_price + 3000, 0, '','،')}} تومان</span>
                     </div><br>
                 </div>

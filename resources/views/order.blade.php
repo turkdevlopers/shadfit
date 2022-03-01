@@ -33,8 +33,25 @@
                 <div class="container">
                     <div class="page-banner bg-white b-radi a-height shadow-sm">
                         <div class="row p-5">
+                            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul style="text-align: right;">
+                                    @foreach ($errors->all() as $error)
+                                        <li>
+                                            {{ $error }}
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        @if ($message = session()->get('message'))
+                            <div class="alert alert-danger" role="alert" style="text-align: right;">
+                                <strong>خطا </strong>{{ $message }}
+                            </div>
+                        @endif
                             {{-- <hr class="hr-st shadow-sm"> --}}
-                            <form class="form-d" id="form">
+                            <form action="{{route('orderstore')}}" method="POST" class="form-d" id="form">
+                                @csrf
                                 <div class="flex-kon">
                                     {{-- part one --}}
                                     {{-- when user loged in --}}
@@ -44,7 +61,7 @@
                                             <div
                                                 class="control-form form-group d-block col-lg-6 col-md-6 col-sm-10 col-7">
                                                 <h5 class="d-flex">نام مدرسه: </h5>
-                                                <input type="text" class="form-control" id="schoolName"
+                                                <input type="text" class="form-control" id="schoolName" name="school_name"
                                                     value="{{ Auth::user()->school_name }}"
                                                     placeholder="نام مدرسه را وارد کنید"
                                                     aria-label="Sizing example input"
@@ -54,8 +71,8 @@
                                             <div
                                                 class="control-form form-group d-block col-lg-6 col-md-6 col-sm-10 col-7">
                                                 <h5 class="d-flex">تعداد دانش آموز :</h5>
-                                                <input type="number" class="form-control" id="numOff"
-                                                    aria-label="Sizing example input"
+                                                <input type="number" class="form-control" id="numOff" name="students_number"
+                                                    aria-label="Sizing example input" value="{{old("students_number")}}"
                                                     aria-describedby="inputGroup-sizing-sm" placeholder="تعداد"
                                                     min="0" />
                                                 <small class="errortxt"></small>
@@ -65,7 +82,7 @@
                                         <div
                                             class="control-form form-block d-block col-lg-12 col-md-12 col-sm-10 col-7">
                                             <h5 class="d-flex">آدرس مدرسه: </h5>
-                                            <input type="text" class="form-control" id="address"
+                                            <input type="text" class="form-control" id="address" name="address"
                                                 value="{{ Auth::user()->address }}"
                                                 placeholder="آدرس مدرسه را وارد کنید" aria-label="Sizing example input"
                                                 aria-describedby="inputGroup-sizing-sm">
@@ -76,7 +93,7 @@
                                             <div
                                                 class="control-form form-group d-block col-lg-6 col-md-6 col-sm-10 col-7">
                                                 <h5 class="d-flex">شماره تلفن مدرسه: </h5>
-                                                <input type="tel" class="form-control" id="numSchool"
+                                                <input type="tel" class="form-control" id="numSchool" name="phone"
                                                     value="{{ Auth::user()->phone }}"
                                                     aria-label="Sizing example input"
                                                     aria-describedby="inputGroup-sizing-sm"
@@ -88,7 +105,7 @@
                                                 class="control-form form-group d-block col-lg-6 col-md-6 col-sm-10 col-7">
                                                 <h5 class="d-flex">شماره تلفن مدیر مدرسه :</h5>
                                                 <input type="tel" class="form-control"
-                                                    value="{{ Auth::user()->mobile }}" id="numPerson"
+                                                    value="{{ Auth::user()->mobile }}" id="numPerson" name="mobile"
                                                     aria-label="Sizing example input"
                                                     aria-describedby="inputGroup-sizing-sm"
                                                     placeholder="شماره را وارد کنید"
@@ -110,7 +127,7 @@
                                             <div
                                                 class="control-form form-group d-block col-lg-6 col-md-6 col-sm-10 col-7">
                                                 <h5 class="d-flex">نام مدرسه: </h5>
-                                                <input type="text" class="form-control" id="schoolName"
+                                                <input type="text" class="form-control" id="schoolName" name="school_name"
                                                     placeholder="نام مدرسه را وارد کنید"
                                                     aria-label="Sizing example input"
                                                     aria-describedby="inputGroup-sizing-sm" minlength="5">
@@ -119,7 +136,7 @@
                                             <div
                                                 class="control-form form-group d-block col-lg-6 col-md-6 col-sm-10 col-7">
                                                 <h5 class="d-flex">تعداد دانش آموز :</h5>
-                                                <input type="number" class="form-control" id="numOff"
+                                                <input type="number" class="form-control" id="numOff" name="students_number"
                                                     aria-label="Sizing example input"
                                                     aria-describedby="inputGroup-sizing-sm" placeholder="تعداد"
                                                     min="0" />
@@ -130,7 +147,7 @@
                                         <div
                                             class="control-form form-block d-block col-lg-12 col-md-12 col-sm-10 col-7">
                                             <h5 class="d-flex">آدرس مدرسه: </h5>
-                                            <input type="text" class="form-control" id="address"
+                                            <input type="text" class="form-control" id="address" name="address"
                                                 placeholder="آدرس مدرسه را وارد کنید" aria-label="Sizing example input"
                                                 aria-describedby="inputGroup-sizing-sm">
                                             <small class="errortxt"></small>
@@ -140,7 +157,7 @@
                                             <div
                                                 class="control-form form-group d-block col-lg-6 col-md-6 col-sm-10 col-7">
                                                 <h5 class="d-flex">شماره تلفن مدرسه: </h5>
-                                                <input type="tel" class="form-control" id="numSchool"
+                                                <input type="tel" class="form-control" id="numSchool" name="phone"
                                                     aria-label="Sizing example input"
                                                     aria-describedby="inputGroup-sizing-sm"
                                                     placeholder="شماره را وارد کنید"
@@ -150,7 +167,7 @@
                                             <div
                                                 class="control-form form-group d-block col-lg-6 col-md-6 col-sm-10 col-7">
                                                 <h5 class="d-flex">شماره تلفن مدیر مدرسه :</h5>
-                                                <input type="tel" class="form-control" id="numPerson"
+                                                <input type="tel" class="form-control" id="numPerson" name="address"
                                                     aria-label="Sizing example input"
                                                     aria-describedby="inputGroup-sizing-sm"
                                                     placeholder="شماره را وارد کنید"
@@ -163,7 +180,7 @@
                                                 <div
                                                     class="control-form form-group d-block col-lg-6 col-md-6 col-sm-10 col-7">
                                                     <h5 class="d-flex">نام کاربری: </h5>
-                                                    <input type="text" class="form-control" id="username"
+                                                    <input type="text" class="form-control" id="username" name="username"
                                                         placeholder="نام کاربری را وارد کنید"
                                                         aria-label="Sizing example input"
                                                         aria-describedby="inputGroup-sizing-sm">
@@ -172,7 +189,7 @@
                                                 <div
                                                     class="control-form form-group d-block col-lg-6 col-md-6 col-sm-10 col-7">
                                                     <h5 class="d-flex">رمز عبور :</h5>
-                                                    <input type="password" class="form-control" id="password"
+                                                    <input type="password" class="form-control" id="password" name="password"
                                                         aria-label="Sizing example input"
                                                         aria-describedby="inputGroup-sizing-sm" placeholder="رمز عبور"
                                                         min="0" />
@@ -184,7 +201,7 @@
                                             <div
                                                 class="control-form form-block d-block col-lg-12 col-md-12 col-sm-10 col-7">
                                                 <h5 class="d-flex">تکرار رمز عبور: </h5>
-                                                <input type="password" class="form-control" id="password2"
+                                                <input type="password" class="form-control" id="password2" name=""
                                                     placeholder="تکرار رمز عبور" aria-label="Sizing example input"
                                                     aria-describedby="inputGroup-sizing-sm">
                                                 <small class="errortxt"></small>
@@ -201,17 +218,9 @@
                                         <div class="d-block">
                                             <h3 class="d-flex">بسته انتخابی</h3>
                                             <br>
-                                            <select class="form-control" id="plans"
+                                            <select class="form-control" id="plans" name="service"
                                                 aria-label="Default select example">
-                                                <option selected value="600">تعرفه یک ماهه عادی 600 تومان</option>
-                                                <option value="800">تعرفه یک ماهه معمولی 800 تومان</option>
-                                                <option value="1000">تعرفه یک ماهه حرفه ای 1000 تومان</option>
-                                                <option value="1600">تعرفه سه ماهه عادی 1600 تومان</option>
-                                                <option value="2200">تعرفه سه ماهه معمولی 2200 تومان</option>
-                                                <option value="2800">تعرفه سه ماهه حرفه ای 2800 تومان</option>
-                                                <option value="6900">تعرفه یک ساله عادی 6900 تومان</option>
-                                                <option value="9300">تعرفه یک ساله معمولی 9300 تومان</option>
-                                                <option value="11700">تعرفه یک ساله حرفه ای 11700 تومان</option>
+                                                <x-order-options-component selected="{{$selected}}" />
                                             </select>
 
                                         </div>

@@ -1,15 +1,17 @@
 @php
 if ($service) {
-    $endTime = $service->payed->activeservice->end;
     $serviceType = $service->package->type;
+    if ($service->satuse == 1) {
+        $endTime = $service->payed->activeservice->end;
 
-    $futur = strtotime($endTime); //Future date.
-    $timefromdb = strtotime('today');
-    $timeleft = $futur-$timefromdb;
-    $daysleft = round((($timeleft/24)/60)/60);
+        $futur = strtotime($endTime); //Future date.
+        $timefromdb = strtotime('today');
+        $timeleft = $futur-$timefromdb;
+        $daysleft = round((($timeleft/24)/60)/60);
 
-    $period = $service->package->plan->period;
-    $chartDegree = (( $daysleft* 360 ) / $period) / 2 ;
+        $period = $service->package->plan->period;
+        $chartDegree = (( $daysleft* 360 ) / $period) / 2 ;
+    }
 
     switch ($serviceType) {
     case "simple":
@@ -39,7 +41,7 @@ if ($service) {
             <div class="bg-light text-center rounded p-4 shadow-sm">
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h5 class="mb-0">فاکتور پرداخت نشده</h5>
-                    <button type="button" class="btn btn-primary m-2">پرداخت <i class="fa fa-caret-left ms-2"></i></button>
+                    <a href="{{route('invoice')}}" type="button" class="btn btn-primary m-2">پرداخت <i class="fa fa-caret-left ms-2"></i></a>
                 </div>
                 <h6>{{number_format($service->order_price, 0, '','،')}} تومان از {{$service->package->plan->name}} {{$serviceType}} شادفیت</h6>
             </div>

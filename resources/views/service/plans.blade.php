@@ -43,7 +43,7 @@
                             </div>
                         </div>
                         <div class="footer">
-                            <a href="{{ route('order','1') }}" class="btn btn-pricing btn-block">ثبت سفارش</a>
+                            <a href="{{ route('order','0') }}" class="btn btn-pricing btn-block">ثبت سفارش</a>
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                             </div>
                         </div>
                         <div class="footer">
-                            <a href="#" class="btn btn-pricing btn-block">ثبت سفارش</a>
+                            <a href="{{ route('order','1') }}" class="btn btn-pricing btn-block">ثبت سفارش</a>
                         </div>
                     </div>
                 </div>
@@ -123,7 +123,7 @@
                             </div>
                         </div>
                         <div class="footer">
-                            <a href="#" class="btn btn-pricing btn-block">ثبت سفارش</a>
+                            <a href="{{ route('order','2') }}" class="btn btn-pricing btn-block">ثبت سفارش</a>
                         </div>
                     </div>
                 </div>
@@ -170,7 +170,7 @@
                             </div>
                         </div>
                         <div class="footer">
-                            <a href="#" class="btn btn-pricing btn-block">ثبت سفارش</a>
+                            <a href="{{ route('order','3') }}" class="btn btn-pricing btn-block">ثبت سفارش</a>
                         </div>
                     </div>
                 </div>
@@ -208,7 +208,7 @@
                             </div>
                         </div>
                         <div class="footer">
-                            <a href="#" class="btn btn-pricing btn-block">ثبت سفارش</a>
+                            <a href="{{ route('order','4') }}" class="btn btn-pricing btn-block">ثبت سفارش</a>
                         </div>
                     </div>
                 </div>
@@ -259,7 +259,7 @@
                             </div>
                         </div>
                         <div class="footer">
-                            <a href="#" class="btn btn-pricing btn-block">ثبت سفارش</a>
+                            <a href="{{ route('order','5') }}" class="btn btn-pricing btn-block">ثبت سفارش</a>
                         </div>
                     </div>
                 </div>
@@ -306,7 +306,7 @@
                             </div>
                         </div>
                         <div class="footer">
-                            <a href="#" class="btn btn-pricing btn-block">ثبت سفارش</a>
+                            <a href="{{ route('order','6') }}" class="btn btn-pricing btn-block">ثبت سفارش</a>
                         </div>
                     </div>
                 </div>
@@ -344,7 +344,7 @@
                             </div>
                         </div>
                         <div class="footer">
-                            <a href="#" class="btn btn-pricing btn-block">ثبت سفارش</a>
+                            <a href="{{ route('order','7') }}" class="btn btn-pricing btn-block">ثبت سفارش</a>
                         </div>
                     </div>
                 </div>
@@ -395,7 +395,7 @@
                             </div>
                         </div>
                         <div class="footer">
-                            <a href="#" class="btn btn-pricing btn-block">ثبت سفارش</a>
+                            <a href="{{ route('order','8') }}" class="btn btn-pricing btn-block">ثبت سفارش</a>
                         </div>
                     </div>
                 </div>

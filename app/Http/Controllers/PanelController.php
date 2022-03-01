@@ -7,6 +7,7 @@ use Morilog\Jalali\Jalalian;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class PanelController extends Controller
 {
@@ -82,14 +83,14 @@ class PanelController extends Controller
             'address'=>'required|min:10|string|max:255',
             'mobile'=>"required|numeric|min:11|unique:users,mobile,$user->id",
             'phone'=>"required|numeric|min:11|unique:users,phone,$user->id",
-            'password'=>'required|min:8|string|max:50',
+            'password'=>'required|min:8|string|max:50|confirmed',
 
         ]);
         $user->school_name = $request['school_name'];
         $user->address = $request['address'];
         $user->mobile = $request['mobile'];
         $user->phone = $request['phone'];
-        $user->password = bcrypt($request['password']);
+        $user->password = Hash::make($request['password']);
 
         $user->save();
         return back()->with('message','پروفایل شما با موفقیت بروز رسانی شد');
