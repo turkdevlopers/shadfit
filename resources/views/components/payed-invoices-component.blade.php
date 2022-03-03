@@ -1,7 +1,11 @@
+@php
+    $IsAnyPayed = false;
+@endphp
 <div>
     <div class="d-inline-flex justify-content-around flex-wrap bg-light rounded p-4 shadow-sm scrolly-div col-lg-12">
         @foreach ($payments as $payment)
             @if ($payment->satuse)
+            @php $IsAnyPayed = true; @endphp
             <div class="bg-white rounded p-4 col-lg-5 m-3">
                 <div class="head d-flex justify-content-between align-items-center">
                     <img width="10%" src="{{ asset('panel/img/planning.svg') }}" alt="school">
@@ -31,7 +35,7 @@
             </div>
             @endif
         @endforeach
-        @if (!isset($payments[0]))
+        @if (!$IsAnyPayed)
             هیچ فاکتور پرداخت شده ای یافت نشد
         @endif
     </div>

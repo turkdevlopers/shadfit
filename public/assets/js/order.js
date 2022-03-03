@@ -42,9 +42,9 @@ function checkInput() {
     const numberSchoolValue = numberSchool.value.trim();
     const numberManagerValue = numberManager.value.trim();
     if (!Islogin) {
-            const userNameValue = userName.value.trim();
-           const passwordValue = password.value.trim();
-           const password2Value = password2.value.trim();
+        var  userNameValue = userName.value.trim();
+        var passwordValue = password.value.trim();
+        var  password2Value = password2.value.trim();
     }
 
     // Condition of school name
