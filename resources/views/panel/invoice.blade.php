@@ -7,6 +7,12 @@
 @endsection
 @section('content')
 
+@if ($message = session()->get('message'))
+<div class="alert alert-success" role="alert" style="text-align: right;">
+    <strong>موفقیت </strong>{{ $message }}
+</div>
+@endif
+
 <div class="container-fluid pt-4 px-4">  
     <x-final-invoices-component />
 </div>

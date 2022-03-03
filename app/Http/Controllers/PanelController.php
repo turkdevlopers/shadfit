@@ -95,4 +95,11 @@ class PanelController extends Controller
         $user->save();
         return back()->with('message','پروفایل شما با موفقیت بروز رسانی شد');
     }
+
+    public function invoiceDelete(){
+        $user = Auth::user();
+        $order = $user->order->where('satuse','=','0')->first();
+        $order->delete();
+        return redirect(route('invoice'))->with('message','فاکتور نهایی شما حذف شد الان می توانید سفارش جدید ثبت کنید');
+    }
 }

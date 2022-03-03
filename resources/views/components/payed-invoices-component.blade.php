@@ -31,7 +31,7 @@
             </div>
             @endif
         @endforeach
-        @if (!$payment->payed)
+        @if (!isset($payments[0]))
             هیچ فاکتور پرداخت شده ای یافت نشد
         @endif
     </div>

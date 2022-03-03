@@ -33,4 +33,6 @@ Route::prefix('admin')->middleware("auth")->group(function () {
     Route::get('/results', [PanelController::class, 'results'])->name("results")->middleware("payed");
     Route::get('/add', [PanelController::class, 'add'])->name("add")->middleware("payed");
     Route::post('/profile', [PanelController::class, 'profileUpdate'])->name("profileupdata");
+    Route::post('/profile', [PanelController::class, 'profileUpdate'])->name("profileupdata");
+    Route::get('/invoice/delete', [PanelController::class, 'invoiceDelete'])->name("invoiceDelete");
 });
