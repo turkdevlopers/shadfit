@@ -204,17 +204,18 @@
                             <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
                             <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
 
-                        </div><div> &ThinSpace;&ThinSpace;&ThinSpace; </div>
+                        </div>
+                        <div> &ThinSpace;&ThinSpace;&ThinSpace; </div>
                         <div class="text-right">
                             <p>سامانه همگام </p>
                             <p> سامانه پادا </p>
-                            <p> شماره صندلی  </p>
+                            <p> شماره صندلی </p>
                             <p> پیغام به مدیریت </p>
                             <p> ٢٤/٧ پشتیبانی </p>
                         </div>
                     </div>
                     <div class="footer">
-                        <a href="#" class="btn btn-pricing btn-block">ثبت سفارش</a>
+                        <a href="{{ route('order','0') }}" class="btn btn-pricing btn-block">ثبت سفارش</a>
                     </div>
                 </div>
             </div>
@@ -239,7 +240,8 @@
                             <p><span class="suffix"><i class="mai-checkmark-circle"></i></span></p>
                             <p><span class="suffix"><i class="mai-checkmark-circle"></i></span></p>
 
-                        </div><div> &ThinSpace;&ThinSpace;&ThinSpace; </div>
+                        </div>
+                        <div> &ThinSpace;&ThinSpace;&ThinSpace; </div>
                         <div class="text-right">
                             <p>سامانه همگام </p>
                             <p>سامانه پادا </p>
@@ -251,7 +253,7 @@
                         </div>
                     </div>
                     <div class="footer">
-                        <a href="#" class="btn btn-pricing btn-block">ثبت سفارش</a>
+                        <a href="{{ route('order','1') }}" class="btn btn-pricing btn-block">ثبت سفارش</a>
                     </div>
                 </div>
             </div>
@@ -278,7 +280,8 @@
                             <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
                             <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
 
-                        </div><div> &ThinSpace;&ThinSpace;&ThinSpace; </div>
+                        </div>
+                        <div> &ThinSpace;&ThinSpace;&ThinSpace; </div>
                         <div class="text-right">
                             <p>سامانه همگام </p>
                             <p>سامانه پادا </p>
@@ -292,7 +295,7 @@
                         </div>
                     </div>
                     <div class="footer">
-                        <a href="#" class="btn btn-pricing btn-block">ثبت سفارش</a>
+                        <a href="{{ route('order','2') }}" class="btn btn-pricing btn-block">ثبت سفارش</a>
                     </div>
                 </div>
             </div>
@@ -317,23 +320,29 @@
                     </div>
                     <div class="body d-flex justify-content-center">
                         <div class="d-flex flex-column">
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
 
-                        </div><div> &ThinSpace;&ThinSpace;&ThinSpace; </div>
+                        </div>
+                        <div> &ThinSpace;&ThinSpace;&ThinSpace; </div>
                         <div class="text-right">
                             <p>سامانه همگام </p>
                             <p> سامانه پادا </p>
-                            <p> شماره صندلی  </p>
+                            <p> شماره صندلی </p>
                             <p> پیغام به مدیریت </p>
                             <p> ٢٤/٧ پشتیبانی </p>
                         </div>
                     </div>
                     <div class="footer">
-                        <a href="#" class="btn btn-pricing btn-block">ثبت سفارش</a>
+                        <a href="{{ route('order','3') }}" class="btn btn-pricing btn-block">ثبت سفارش</a>
                     </div>
                 </div>
             </div>
@@ -358,7 +367,8 @@
                             <p><span class="suffix"><i class="mai-checkmark-circle"></i></span></p>
                             <p><span class="suffix"><i class="mai-checkmark-circle"></i></span></p>
 
-                        </div><div> &ThinSpace;&ThinSpace;&ThinSpace; </div>
+                        </div>
+                        <div> &ThinSpace;&ThinSpace;&ThinSpace; </div>
                         <div class="text-right">
                             <p>سامانه همگام </p>
                             <p>سامانه پادا </p>
@@ -370,7 +380,7 @@
                         </div>
                     </div>
                     <div class="footer">
-                        <a href="#" class="btn btn-pricing btn-block">ثبت سفارش</a>
+                        <a href="{{ route('order','4') }}" class="btn btn-pricing btn-block">ثبت سفارش</a>
                     </div>
                 </div>
             </div>
@@ -387,17 +397,27 @@
                     </div>
                     <div class="body d-flex justify-content-center">
                         <div class="d-flex flex-column">
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
 
-                        </div><div> &ThinSpace;&ThinSpace;&ThinSpace; </div>
+                        </div>
+                        <div> &ThinSpace;&ThinSpace;&ThinSpace; </div>
                         <div class="text-right">
                             <p>سامانه همگام </p>
                             <p>سامانه پادا </p>
@@ -411,7 +431,7 @@
                         </div>
                     </div>
                     <div class="footer">
-                        <a href="#" class="btn btn-pricing btn-block">ثبت سفارش</a>
+                        <a href="{{ route('order','5') }}" class="btn btn-pricing btn-block">ثبت سفارش</a>
                     </div>
                 </div>
             </div>
@@ -436,23 +456,29 @@
                     </div>
                     <div class="body d-flex justify-content-center">
                         <div class="d-flex flex-column">
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
 
-                        </div><div> &ThinSpace;&ThinSpace;&ThinSpace; </div>
+                        </div>
+                        <div> &ThinSpace;&ThinSpace;&ThinSpace; </div>
                         <div class="text-right">
                             <p>سامانه همگام </p>
                             <p> سامانه پادا </p>
-                            <p> شماره صندلی  </p>
+                            <p> شماره صندلی </p>
                             <p> پیغام به مدیریت </p>
                             <p> ٢٤/٧ پشتیبانی </p>
                         </div>
                     </div>
                     <div class="footer">
-                        <a href="#" class="btn btn-pricing btn-block">ثبت سفارش</a>
+                        <a href="{{ route('order','6') }}" class="btn btn-pricing btn-block">ثبت سفارش</a>
                     </div>
                 </div>
             </div>
@@ -477,7 +503,8 @@
                             <p><span class="suffix"><i class="mai-checkmark-circle"></i></span></p>
                             <p><span class="suffix"><i class="mai-checkmark-circle"></i></span></p>
 
-                        </div><div> &ThinSpace;&ThinSpace;&ThinSpace; </div>
+                        </div>
+                        <div> &ThinSpace;&ThinSpace;&ThinSpace; </div>
                         <div class="text-right">
                             <p>سامانه همگام </p>
                             <p>سامانه پادا </p>
@@ -489,7 +516,7 @@
                         </div>
                     </div>
                     <div class="footer">
-                        <a href="#" class="btn btn-pricing btn-block">ثبت سفارش</a>
+                        <a href="{{ route('order','7') }}" class="btn btn-pricing btn-block">ثبت سفارش</a>
                     </div>
                 </div>
             </div>
@@ -506,17 +533,27 @@
                     </div>
                     <div class="body d-flex justify-content-center">
                         <div class="d-flex flex-column">
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
-                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span></p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
+                            <p><span class="suffix"><i class="mai-checkmark-circle text-primary"></i></span>
+                            </p>
 
-                        </div><div> &ThinSpace;&ThinSpace;&ThinSpace; </div>
+                        </div>
+                        <div> &ThinSpace;&ThinSpace;&ThinSpace; </div>
                         <div class="text-right">
                             <p>سامانه همگام </p>
                             <p>سامانه پادا </p>
@@ -530,7 +567,7 @@
                         </div>
                     </div>
                     <div class="footer">
-                        <a href="#" class="btn btn-pricing btn-block">ثبت سفارش</a>
+                        <a href="{{ route('order','8') }}" class="btn btn-pricing btn-block">ثبت سفارش</a>
                     </div>
                 </div>
             </div>

@@ -32,3 +32,44 @@ Route::get('/usercheck/{username}', function($username){
         "Message" => ""
     ]);
 })->name("UserCheckApi");
+
+route::get('/offcheck/{code}/user/{userId}', function($code, $userId){
+    $user = User::find($userId);
+    if ($user and $order = $user->order->where('satuse','=','0')->first()) {
+        $discounts = new App\Models\Off;
+        if ($discount = $discounts->where('code','=',$code)->first()) {
+            if ($discount->upto >= $order->students_number) {//discount can be or no
+                $FinalPrice = $order->order_price - (($order->order_price * $discount->Percentage) / 100) ; //math formul
+                return response()->json([
+                    "Satuse" => "success" ,
+                    "discount" => "$discount->Percentage%" ,
+                    "Message" => "کد تخفیف اعمال شد",
+                    "OldPrice" => $order->order_price,
+                    "FinalPrice" => $FinalPrice
+                ]);
+            }
+            if ($discount->upto == 0 and $order->students_number > 100) {//discount can be or no
+                $FinalPrice = $order->order_price - (($order->order_price * $discount->Percentage) / 100) ; //math formul
+                return response()->json([
+                    "Satuse" => "success" ,
+                    "Discount" => "$discount->Percentage%" ,
+                    "Message" => "کد تخفیف اعمال شد",
+                    "OldPrice" => $order->order_price,
+                    "FinalPrice" => $FinalPrice
+                ]);
+            }
+            
+            return response()->json([
+                "satuse" => "error" ,
+                "Message" => "این کد تخفیف مشمول شما نمی شود"
+            ]);
+
+        }else{
+            return response()->json([
+                "satuse" => "error" ,
+                "Message" => "کد تخفیف پیدا نشد"
+            ]);
+        }
+    }
+    return abort(404);
+});

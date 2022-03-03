@@ -128,6 +128,7 @@
                                                 class="control-form form-group d-block col-lg-6 col-md-6 col-sm-10 col-7">
                                                 <h5 class="d-flex">نام مدرسه: </h5>
                                                 <input type="text" class="form-control" id="schoolName" name="school_name"
+                                                value="{{old("school_name")}}"
                                                     placeholder="نام مدرسه را وارد کنید"
                                                     aria-label="Sizing example input"
                                                     aria-describedby="inputGroup-sizing-sm" minlength="5">
@@ -137,6 +138,7 @@
                                                 class="control-form form-group d-block col-lg-6 col-md-6 col-sm-10 col-7">
                                                 <h5 class="d-flex">تعداد دانش آموز :</h5>
                                                 <input type="number" class="form-control" id="numOff" name="students_number"
+                                                value="{{old("students_number")}}"
                                                     aria-label="Sizing example input"
                                                     aria-describedby="inputGroup-sizing-sm" placeholder="تعداد"
                                                     min="0" />
@@ -148,6 +150,7 @@
                                             class="control-form form-block d-block col-lg-12 col-md-12 col-sm-10 col-7">
                                             <h5 class="d-flex">آدرس مدرسه: </h5>
                                             <input type="text" class="form-control" id="address" name="address"
+                                            value="{{old("address")}}"
                                                 placeholder="آدرس مدرسه را وارد کنید" aria-label="Sizing example input"
                                                 aria-describedby="inputGroup-sizing-sm">
                                             <small class="errortxt"></small>
@@ -158,6 +161,7 @@
                                                 class="control-form form-group d-block col-lg-6 col-md-6 col-sm-10 col-7">
                                                 <h5 class="d-flex">شماره تلفن مدرسه: </h5>
                                                 <input type="tel" class="form-control" id="numSchool" name="phone"
+                                                value="{{old("phone")}}"
                                                     aria-label="Sizing example input"
                                                     aria-describedby="inputGroup-sizing-sm"
                                                     placeholder="شماره را وارد کنید"
@@ -167,7 +171,8 @@
                                             <div
                                                 class="control-form form-group d-block col-lg-6 col-md-6 col-sm-10 col-7">
                                                 <h5 class="d-flex">شماره تلفن مدیر مدرسه :</h5>
-                                                <input type="tel" class="form-control" id="numPerson" name="address"
+                                                <input type="tel" class="form-control" id="numPerson" name="mobile"
+                                                value="{{old("mobile")}}"
                                                     aria-label="Sizing example input"
                                                     aria-describedby="inputGroup-sizing-sm"
                                                     placeholder="شماره را وارد کنید"
@@ -201,7 +206,7 @@
                                             <div
                                                 class="control-form form-block d-block col-lg-12 col-md-12 col-sm-10 col-7">
                                                 <h5 class="d-flex">تکرار رمز عبور: </h5>
-                                                <input type="password" class="form-control" id="password2" name=""
+                                                <input type="password" class="form-control" id="password2" name="password_confirmation"
                                                     placeholder="تکرار رمز عبور" aria-label="Sizing example input"
                                                     aria-describedby="inputGroup-sizing-sm">
                                                 <small class="errortxt"></small>

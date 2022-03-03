@@ -18,13 +18,15 @@ class IsActiveOrder
      */
     public function handle(Request $request, Closure $next)
     {
-        $user = Auth::user();
-        $orders = User::find($user->id)->order;
-        foreach ($orders as $order) {
-            if ($order->satuse == 0) {
-                return redirect(route('invoice'));
+        if ($user = Auth::user()) {
+            $orders = User::find($user->id)->order;
+            foreach ($orders as $order) {
+                if ($order->satuse == 0) {
+                    return redirect(route('invoice'));
+                }
             }
         }
+
         return $next($request);
     }
 }
