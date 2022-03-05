@@ -14,10 +14,20 @@
     }
 @endphp
 
-    <div class="d-flex align-items-center justify-content-between rounded-top shadow-sm p-4 text-white bg-primary"
-        style="opacity: 0.75;">
+    <div class="d-flex align-items-center justify-content-between rounded-top shadow-sm p-4 text-white bg-primary"style="opacity: 0.75;">
+
         <h4 class="text-light mb-0">فاکتور نهایی شما</h4>
         <h6 class="text-light mb-0">شماره فاکتور &nbsp;&nbsp;<span>{{$invoice->id}}</span></h6>
+        <div class="dropdown">
+            <a class="btn btn-warning dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+               بیشتر
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" href="#"><i class="fa fa-print"></i> چاپ</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fa fa-download"></i> دانلود صورت حساب</a></li>
+              <li><a class="dropdown-item bg-danger text-white" href="{{route('invoiceDelete')}}"><i class="fa fa-trash"></i> حذف صورت حساب</a></li>
+            </ul>
+          </div>
     </div>
     <div class="bg-light text-center rounded-bottom p-4 shadow-sm">
         <form action="">
