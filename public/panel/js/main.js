@@ -39,12 +39,15 @@
         $(".pjaxmenu a").removeClass("active");
         $(this).addClass("active");
     });
-
+    add_remove ()
+    uploadFile();
     sortIt();
     botsetting_js();
     profile_js();
     $(document).ajaxComplete(function () {
         /**function place */
+        add_remove ()
+        uploadFile();
         sortIt();
         botsetting_js();
         profile_js();
@@ -251,7 +254,45 @@
         }   
         }
     }
+    // add student page
+    function uploadFile () {
+        if (document.querySelector("#file")) {
+            $("#file").on("change", function (e) {
+                var files = $(this)[0].files;
+                if (files.length >= 2) {
+                    $(".file_label").text(files.length + " Files Ready To Upload");
+                } else {
+                    var ssss = this.parentElement.firstChild.nextSibling ;
+                    console.log(ssss);
+                    var fileName = e.target.value.split("\\").pop();
+                    console.log(fileName);
+                    var Label = $(".file_label");
+                    console.log(Label);
+                    var del = $(".delet");
+                    Label.text("بارگزاری شده");
+                    Label.removeClass("bg-primary");
+                    Label.css("background-color", "#35bb78" , 'important');
+                    del.removeClass("d-none")
+                }
+            });
+        }
 
+    };
+    function add_remove () {
+         $("#class-div").on("click", ".add-class", function () {
+         var newchg = this.parentElement.parentElement.parentElement.firstChild.nextSibling.nextSibling.nextSibling;
+         console.log(newchg);
+         var result = nameClass_input();
+         $(newchg).append(result);
+    });
+    $("#class-div").on("click", ".remove-class", function () {
+        console.log("dsdsdsd");
+        $('#body-div').remove();
+    });
+    };
+    function nameClass_input (){
+        return ` <div class="d-md-flex justify-content-between mt-4 col-lg-12" id="body-div"> <div class="col-lg-5 col-md-6 new_chq"> <input class="form-control mb-3 border-0 bg-light" type="text" placeholder="نام کلاس آموزشی" aria-label="default input example"> </div><div class="col-lg-5 col-md-6"> <input class="form-control" type="file" id="formFile"> </div></div>`
+    }
     // Back to top button-------------------------------------------
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
