@@ -12,6 +12,11 @@
     <strong>موفقیت </strong>{{ $message }}
 </div>
 @endif
+@if ($message = session()->get('failmessage'))
+<div class="alert alert-info" role="alert" style="text-align: right;">
+    <strong>توجه </strong>{{ $message }}
+</div>
+@endif
 
 <div class="container-fluid pt-4 px-4">  
     <x-final-invoices-component />

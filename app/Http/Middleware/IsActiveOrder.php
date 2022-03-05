@@ -21,8 +21,8 @@ class IsActiveOrder
         if ($user = Auth::user()) {
             $orders = User::find($user->id)->order;
             foreach ($orders as $order) {
-                if ($order->satuse == 0) {
-                    return redirect(route('invoice'));
+                if ($order->satuse == 0 or $order->payed->activeservice) {
+                    return redirect(route('invoice'))->with('failmessage','شما یک سرویس فعال و یا یک فاکتور پرداخت نشده دارید');
                 }
             }
         }

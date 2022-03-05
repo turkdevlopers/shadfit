@@ -19,7 +19,21 @@ class PanelController extends Controller
     public function index(OrderController $order, Auth $auth)
     {
         $user = $auth::user();
-        $service = User::find($user->id)->order->first();
+        $PayedServices = User::find($user->id)->order->where('satuse','=','1');
+        $NotPayedService = User::find($user->id)->order->where('satuse','=','0')->first();
+
+        foreach ($PayedServices as $service) {
+            if($active = $service->payed->activeservice){
+                if(strtotime($active->end) >= strtotime('today')){
+                    return view('panel.dashboard',compact('service'));
+                }else{
+                    $active->delete();
+                    $service = $NotPayedService;
+                    return view('panel.dashboard',compact('service'));
+                }
+            }
+        }
+        $service = $NotPayedService;
         return view('panel.dashboard',compact('service'));
     }
      /**

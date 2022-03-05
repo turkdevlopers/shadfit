@@ -43,33 +43,35 @@
     sortIt();
     botsetting_js();
     profile_js();
+    discounter();
     $(document).ajaxComplete(function () {
         /**function place */
         sortIt();
         botsetting_js();
         profile_js();
+        discounter();
     });
 
 
     //bot Setting part ************************************
 
     function botsetting_js() {
-        
+
         if ($('.opt')) {
             $('.opt').click(function (ev) {
                 var optionName = this.getAttribute('option_name');
                 var optionId = this.getAttribute('option_id') * 1;
-                if (optionName != null) {
-                    var result = hamgam(optionName);
-                    $('#items').append(result);
-                }
                 if (optionId === 8 && optionName != null) {
                     var result = survey(optionName);
-                    $('#items').append(result);
+                    return $('#items').append(result);
                 }
                 if (optionId === 6 && optionName != null) {
                     var result = voting(optionName);
-                    $('#items').append(result);
+                    return $('#items').append(result);
+                }
+                if (optionName != null) {
+                    var result = hamgam(optionName);
+                    return $('#items').append(result);
                 }
             });
 
@@ -107,148 +109,175 @@
     function profile_js() {
         if (document.querySelector("#schoolName")) {
             //Profil Image Upload
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
-                    $('#imagePreview').hide();
-                    $('#imagePreview').fadeIn(650);
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+                        $('#imagePreview').hide();
+                        $('#imagePreview').fadeIn(650);
+                    }
+                    reader.readAsDataURL(input.files[0]);
                 }
-                reader.readAsDataURL(input.files[0]);
             }
-        }
-        $("#imageUpload").change(function () {
-            readURL(this);
-        });
-        //Profil Validation ---------------------------------------------
+            $("#imageUpload").change(function () {
+                readURL(this);
+            });
+            //Profil Validation ---------------------------------------------
 
-        function just_persian(str) {
-            var p = /^[\u0600-\u06FF\s]+$/;
+            function just_persian(str) {
+                var p = /^[\u0600-\u06FF\s]+$/;
 
-            if (!p.test(str)) {
-                return false;
+                if (!p.test(str)) {
+                    return false;
+                }
+                return true;
             }
-            return true;
-        }
-        const form = document.querySelector("#form");
+            const form = document.querySelector("#form");
 
-        const schoolName = document.querySelector("#schoolName");
-        const schoolAddress = document.querySelector("#address");
-        const numberSchool = document.querySelector("#numSchool");
-        const numberManager = document.querySelector("#numPerson");
-        const password = document.querySelector("#password");
-        const password2 = document.querySelector("#password2");
+            const schoolName = document.querySelector("#schoolName");
+            const schoolAddress = document.querySelector("#address");
+            const numberSchool = document.querySelector("#numSchool");
+            const numberManager = document.querySelector("#numPerson");
+            const password = document.querySelector("#password");
+            const password2 = document.querySelector("#password2");
 
 
 
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
-            if (checkInput() !== false) {
-                form.submit();
-            }
-        });
-        function checkInput() {
-            const schoolNameValue = schoolName.value.trim();
-            const schoolAddressValue = schoolAddress.value.trim();
-            const numberSchoolValue = numberSchool.value.trim();
-            const numberManagerValue = numberManager.value.trim();
-            const passwordValue = password.value.trim();
-            const password2Value = password2.value.trim();
-            // Condition of school name
-            if (schoolNameValue === '') {
-                schoolName.focus();
-                setErorr(schoolName, 'نام مدرسه را وارد کنید');
-                return false;
-            }
-            else {
-                if (schoolName.value.length > 13) {
-                    setErorr(schoolName, 'نام مدرسه طوالانی هست');
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                if (checkInput() !== false) {
+                    form.submit();
+                }
+            });
+            function checkInput() {
+                const schoolNameValue = schoolName.value.trim();
+                const schoolAddressValue = schoolAddress.value.trim();
+                const numberSchoolValue = numberSchool.value.trim();
+                const numberManagerValue = numberManager.value.trim();
+                const passwordValue = password.value.trim();
+                const password2Value = password2.value.trim();
+                // Condition of school name
+                if (schoolNameValue === '') {
+                    schoolName.focus();
+                    setErorr(schoolName, 'نام مدرسه را وارد کنید');
+                    return false;
+                }
+                else {
+                    if (schoolName.value.length > 13) {
+                        setErorr(schoolName, 'نام مدرسه طوالانی هست');
+                        return false;
+                    } else {
+                        if (just_persian(schoolNameValue)) {
+                            setSuccess(schoolName);
+                        } else {
+                            setErorr(schoolName, 'نام مدرسه باید فارسی باشد');
+                            return false;
+                        }
+                    }
+                }
+                // Condition of School Adress
+                if (schoolAddressValue === '') {
+                    schoolAddress.focus();
+                    setErorr(schoolAddress, 'آدرس مدرسه را وارد کنید را وارد کنید');
                     return false;
                 } else {
-                    if (just_persian(schoolNameValue)) {
-                        setSuccess(schoolName);
+                    if (schoolAddress.value.length > 10 && schoolAddress.value.length < 225) {
+                        if (just_persian(schoolAddressValue)) {
+                            setSuccess(schoolAddress);
+                        } else {
+                            setErorr(schoolAddress, 'آدرس مدرسه باید فارسی باشد');
+                            return false;
+                        }
+
                     } else {
-                        setErorr(schoolName, 'نام مدرسه باید فارسی باشد');
+                        setErorr(schoolAddress, 'آدرس نه کوتاه باشد نه طولانی (حد وسط 20 تا 50 کلمه) ');
                         return false;
                     }
                 }
-            }
-            // Condition of School Adress
-            if (schoolAddressValue === '') {
-                schoolAddress.focus();
-                setErorr(schoolAddress, 'آدرس مدرسه را وارد کنید را وارد کنید');
-                return false;
-            } else {
-                if (schoolAddress.value.length > 10 && schoolAddress.value.length < 225) {
-                    if (just_persian(schoolAddressValue)) {
-                        setSuccess(schoolAddress);
-                    } else {
-                        setErorr(schoolAddress, 'آدرس مدرسه باید فارسی باشد');
+                // Condition of phone school number
+                if (numberSchoolValue === '') {
+                    numberSchool.focus();
+                    setErorr(numberSchool, 'شماره تلفن مدرسه را وارد کنید');
+                    return false;
+                } else {
+                    setSuccess(numberSchool);
+                }
+                // Condition of phone manager number
+                if (numberManagerValue === '') {
+                    numberManager.focus();
+                    setErorr(numberManager, 'شماره تلفن مدیر مدرسه را وارد کنید');
+                    return false;
+                } else {
+                    setSuccess(numberManager);
+                }
+                // Condition of password
+                if (passwordValue === '') {
+                    password.focus();
+                    setErorr(password, 'رمز عبور خود را وارد کنید');
+                    return false;
+                } else {
+                    if (password.value.length < 8) {
+                        setErorr(password, 'رمز عبور شما باید بیشتر از 8 کاراکتر باشد');
                         return false;
+                    } else {
+                        setSuccess(password);
                     }
+                }
+                // Condition of password2
+                if (password2Value === '') {
+                    password2.focus();
+                    setErorr(password2, 'تکرار رمز عبور خود را وارد کنید');
+                    return false;
+                } else if (passwordValue !== password2Value) {
+                    setErorr(password2, 'رمز عبور اشتباه وارد شده');
+                    return false;
+                } else {
+                    if (password2.value.length < 8) {
+                        setErorr(password2, 'رمز عبور شما باید بیشتر از 8 کاراکتر باشد');
+                        return false;
+                    } else {
+                        setSuccess(password2);
+                    }
+                }
 
-                } else {
-                    setErorr(schoolAddress, 'آدرس نه کوتاه باشد نه طولانی (حد وسط 20 تا 50 کلمه) ');
-                    return false;
-                }
             }
-            // Condition of phone school number
-            if (numberSchoolValue === '') {
-                numberSchool.focus();
-                setErorr(numberSchool, 'شماره تلفن مدرسه را وارد کنید');
-                return false;
-            } else {
-                setSuccess(numberSchool);
+            const setErorr = (input, message) => {
+                input.classList.remove("border-0")
+                input.style.border = "2px solid #eb0b0b";
+                input.nextElementSibling.innerHTML = message;
             }
-            // Condition of phone manager number
-            if (numberManagerValue === '') {
-                numberManager.focus();
-                setErorr(numberManager, 'شماره تلفن مدیر مدرسه را وارد کنید');
-                return false;
-            } else {
-                setSuccess(numberManager);
+            const setSuccess = (input) => {
+                input.style.borderColor = "";
+                input.nextElementSibling.innerHTML = "";
             }
-            // Condition of password
-            if (passwordValue === '') {
-                password.focus();
-                setErorr(password, 'رمز عبور خود را وارد کنید');
-                return false;
-            } else {
-                if (password.value.length < 8) {
-                    setErorr(password, 'رمز عبور شما باید بیشتر از 8 کاراکتر باشد');
-                    return false;
-                } else {
-                    setSuccess(password);
-                }
-            }
-            // Condition of password2
-            if (password2Value === '') {
-                password2.focus();
-                setErorr(password2, 'تکرار رمز عبور خود را وارد کنید');
-                return false;
-            } else if (passwordValue !== password2Value) {
-                setErorr(password2, 'رمز عبور اشتباه وارد شده');
-                return false;
-            } else {
-                if (password2.value.length < 8) {
-                    setErorr(password2, 'رمز عبور شما باید بیشتر از 8 کاراکتر باشد');
-                    return false;
-                } else {
-                    setSuccess(password2);
-                }
-            }
+        }
+    }
 
-        }
-        const setErorr = (input, message) => {
-            input.classList.remove("border-0")
-            input.style.border = "2px solid #eb0b0b";
-            input.nextElementSibling.innerHTML = message;
-        }
-        const setSuccess = (input) => {
-            input.style.borderColor = "";
-            input.nextElementSibling.innerHTML = "";
-        }   
+    // check for discount -------------------------------------------
+
+    function discounter() {
+        if (document.querySelector("#off-input")) {
+            $('#off-button').click(function () {
+                var code = $('#off-input').val();
+                var sendRequest = new XMLHttpRequest();
+                sendRequest.open("GET",`${weburl}/api/offcheck/${code}/user/${userId}`);
+                sendRequest.send();
+                sendRequest.onload = function () {
+                    var result = JSON.parse(this.response);
+                    if (result.Satuse == "success") {
+                        $('#off-button').removeClass(['btn-primary','btn-danger','btn-success'])
+                        .addClass('btn-success');
+                        $('#offresult').html(`<span class="text-success">${result.discount} ${result.Message}</span>`);
+                        $('#final-price').html(`<span class="text-success text-flicker-in-glow">${(new Intl.NumberFormat().format(result.FinalPrice))}</span>`);
+                    } else {
+                        $('#off-button').removeClass(['btn-primary','btn-success','btn-danger'])
+                        .addClass('btn-danger');
+                        $('#offresult').html(`<span class="text-danger">${result.Message}</span>`);
+                        $('#final-price').html(`<span class="text-flicker-in-glow">${(new Intl.NumberFormat().format(result.LastPrice))}</span>`);
+                    }
+                }
+            });
         }
     }
 

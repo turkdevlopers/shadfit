@@ -19,9 +19,11 @@ class ServiceIsValid
     public function handle(Request $request, Closure $next)
     {
         $user = Auth::user();
-        $service = User::find($user->id)->order->first();
-        if ($service and $service->payed) {
-            return $next($request);
+        $services = User::find($user->id)->order;
+        foreach ($services as $service) {
+            if ($service and $service->payed and $service->payed->activeservice) {
+                return $next($request);
+            }
         }
         return redirect(route('panel'));
     }

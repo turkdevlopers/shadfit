@@ -61,15 +61,20 @@ route::get('/offcheck/{code}/user/{userId}', function($code, $userId){
             
             return response()->json([
                 "satuse" => "error" ,
+                "LastPrice" => $order->order_price + 3000 ,
                 "Message" => "این کد تخفیف مشمول شما نمی شود"
             ]);
 
         }else{
             return response()->json([
                 "satuse" => "error" ,
+                "LastPrice" => $order->order_price + 3000 ,
                 "Message" => "کد تخفیف پیدا نشد"
             ]);
         }
     }
-    return abort(404);
-});
+    return response()->json([
+        "satuse" => "error" ,
+        "Message" => "خطایی رخ داد لطفا با پشتیبان در ارتباط باشید"
+    ]);
+})->name('offcheck');

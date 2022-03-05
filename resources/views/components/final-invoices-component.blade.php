@@ -41,7 +41,7 @@
                         <h5>مالیات و ارزش افزوده</h5>&nbsp;&nbsp;<span class="f-2">3.000 تومان</span>
                     </div><br>
                     <div class="num-student d-flex">
-                        <h5>مبلغ قابل پرداخت</h5>&nbsp;&nbsp;<span class="f-2">{{number_format($invoice->order_price + 3000, 0, '','،')}} تومان</span>
+                        <h5>مبلغ قابل پرداخت</h5>&nbsp;&nbsp;<span id="final-price" class="f-2">{{number_format($invoice->order_price + 3000, 0, '','،')}} تومان</span>
                     </div><br>
                 </div>
                 <div class="discount col-lg-4">
@@ -54,11 +54,12 @@
                         <p class="f-2 text-end">(پین تخفیف، قرار داد های سازمانی،...)</p>
                     </div>
                     <div class="d-flex align-items-baseline col-lg-12">
-                        <input class="form-control" type="text" placeholder="کد تخفیف را وارد کنید"
+                        <input id="off-input" class="form-control" type="text" placeholder="کد تخفیف را وارد کنید"
                             aria-label="default input example">
-                        <button type="button" class="btn btn-sm btn-sm-square btn-primary m-2 col-lg-5"><i
+                        <button id="off-button" type="button" class="btn btn-sm btn-sm-square btn-primary m-2 col-lg-5"><i
                                 class="fa fa-check-circle h5 mb-0 text-white"></i></button>
                     </div>
+                    <span id="offresult"></span>
                 </div>
             </div>
             <div class="d-flex justify-content-center pt-5 col-lg-12">
@@ -69,6 +70,10 @@
             </div>
         </form>
     </div>
+    <script>
+        var weburl = "{{route('service.shadfit')}}" ;
+        var userId = "{{$user->id}}";
+    </script>
 @else
     <div class="text-center bg-light rounded p-4 shadow-sm scrolly-div col-lg-12">
         شما هیچ سرویس  جدیدی انتخاب نکردید. 
