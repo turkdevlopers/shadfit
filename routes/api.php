@@ -42,7 +42,7 @@ route::get('/offcheck/{code}/user/{userId}', function($code, $userId){
                 $FinalPrice = $order->order_price - (($order->order_price * $discount->Percentage) / 100) ; //math formul
                 return response()->json([
                     "Satuse" => "success" ,
-                    "discount" => "$discount->Percentage%" ,
+                    "Discount" => "$discount->Percentage%" ,
                     "Message" => "کد تخفیف اعمال شد",
                     "OldPrice" => $order->order_price,
                     "FinalPrice" => $FinalPrice

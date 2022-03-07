@@ -9,6 +9,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
+use Morilog\Jalali\Jalalian;
+use Spipu\Html2Pdf\Html2Pdf;
 
 class OrderController extends Controller
 {
@@ -109,7 +112,7 @@ class OrderController extends Controller
 
                 $lg->login($request);
                 return redirect(route('panel'));
-            }else{
+            } else {
                 return back()->with('message', 'سرویس مورد نظر یافت نشد');
             }
         }
@@ -121,9 +124,56 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function showpdf(Order $order)
     {
-        //
+ 
+        return redirect('https://selectpdf.com/api2/convert/?key=dc1062f8-061e-4c31-a909-1cce2e842e19&url=https://www.nic.ir/');
+
+        // $invoice = new InvoicePrinter('A4','','fa');
+
+        // $serviceType = $order->package->type;
+        // switch ($serviceType) {
+        // case "simple":
+        // $serviceType = 'عادی';
+        //     break;
+        // case "normal":
+        // $serviceType = 'معمولی';
+        //     break;
+        // case "professional":
+        // $serviceType = 'حرفه ای';
+        //     break;
+        // }
+        // $invoice->setLogo(asset('assets/img/shadfit.png'));
+        // $invoice->setColor('#6C55F9');
+        // $invoice->setType('ghj');
+        // $invoice->setReference($order->id);
+        // $invoice->setDate(jdate(time())->format('Y/m/d'));
+        // $invoice->hide_tofrom();
+        // /* Adding Items in table */
+        // $invoice->addItem('yui', 'hjk', $order->students_number, false, $order->package->price, false, $order->package->price * $order->students_number);
+        // /* Add totals */
+        // $invoice->addTotal('ghj', $order->order_price);
+        // $invoice->addTotal('ghj', $order->order_price + 3000, true);
+        // /* Render */
+        // $invoice->render('invoice.pdf', 'I'); /* I => Display on browser, D => Force Download, F => local path save, S => return document path */
+    }
+
+    public function showprint(Order $order)
+    {
+        $user = Auth::user();
+        $serviceType = $order->package->type;
+        switch ($serviceType) {
+            case "simple":
+                $serviceType = 'عادی';
+                break;
+            case "normal":
+                $serviceType = 'معمولی';
+                break;
+            case "professional":
+                $serviceType = 'حرفه ای';
+                break;
+        }
+        return view('panel.invoiceprint', compact('serviceType', 'order', 'user'));
     }
 
     /**

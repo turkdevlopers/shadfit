@@ -3,6 +3,7 @@
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\ServiceController;
+use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -34,5 +35,7 @@ Route::prefix('admin')->middleware("auth")->group(function () {
     Route::get('/add', [PanelController::class, 'add'])->name("add")->middleware("payed");
     Route::post('/profile', [PanelController::class, 'profileUpdate'])->name("profileupdata");
     Route::post('/profile', [PanelController::class, 'profileUpdate'])->name("profileupdata");
+    Route::get('/invoice/print/{order}', [OrderController::class, 'showprint'])->name("invoicePrint");
+    Route::get('/invoice/pdf/{order}', [OrderController::class, 'showpdf'])->name("invoicePdf");
     Route::get('/invoice/delete', [PanelController::class, 'invoiceDelete'])->name("invoiceDelete");
 });
