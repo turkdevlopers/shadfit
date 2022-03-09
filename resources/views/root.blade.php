@@ -27,7 +27,10 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="300">
       <div class="container">
-        <img class="rounded-circle" src="{{ asset('assets/img/shadfit.png') }}" alt="school" width="7%">
+        <div class="row">
+        <img class="rounded-circle" src="{{ asset('assets/img/Emams.png') }}" width="70%">
+      </div>
+        <img class="rounded-circle" src="{{ asset('assets/img/shadfit.png') }}" alt="school" width="9%">
         <a href="#" class="navbar-brand"><h4 class="font-weight-bold">شاد<span class="text-primary"> فیت </span></h4></a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -54,7 +57,7 @@
     </nav>
 
     <div class="container">
-      <div class="page-banner">
+      <div class="page-banner shadow-sm">
         <div class="row justify-content-center align-items-center h-100">
           <div class="col-md-6">
             <nav aria-label="Breadcrumb">
@@ -81,7 +84,7 @@
       <div class="row mb-5">
         <div class="col-lg-3 py-3">
           <h3>ناینس</h3>
-          <p>یک گروه فعال و متمایز و متشکل از کارمدان و متخصصان برای پیشرفت ایران عزیز</p>
+          <p>یک گروه فعال و متمایز و متشکل از کارمندان و متخصصان برای پیشرفت ایران عزیز</p>
 
           <div class="social-media-button">
             <a href="#"><span class="mai-logo-facebook-f"></span></a>
