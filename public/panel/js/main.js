@@ -269,7 +269,7 @@
                     if (result.Satuse == "success") {
                         $('#off-button').removeClass(['btn-primary','btn-danger','btn-success'])
                         .addClass('btn-success');
-                        $('#offresult').html(`<span class="text-success">${result.discount} ${result.Message}</span>`);
+                        $('#offresult').html(`<span class="text-success">${result.Discount} ${result.Message}</span>`);
                         $('#final-price').html(`<span class="text-success text-flicker-in-glow">${(new Intl.NumberFormat().format(result.FinalPrice))}</span>`);
                     } else {
                         $('#off-button').removeClass(['btn-primary','btn-success','btn-danger'])

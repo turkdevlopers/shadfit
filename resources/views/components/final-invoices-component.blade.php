@@ -23,8 +23,8 @@
                بیشتر
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <li><a class="dropdown-item" href="#"><i class="fa fa-print"></i> چاپ</a></li>
-              <li><a class="dropdown-item" href="#"><i class="fa fa-download"></i> دانلود صورت حساب</a></li>
+              <li><a class="dropdown-item" target="_blank" href="{{route('invoicePrint',$invoice->id)}}"><i class="fa fa-print"></i> چاپ</a></li>
+              <li><a class="dropdown-item" href="{{route('invoicePdf',$invoice->id)}}"><i class="fa fa-download"></i> دانلود صورت حساب</a></li>
               <li><a class="dropdown-item bg-danger text-white" href="{{route('invoiceDelete')}}"><i class="fa fa-trash"></i> حذف صورت حساب</a></li>
             </ul>
           </div>
