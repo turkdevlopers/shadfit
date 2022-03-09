@@ -40,7 +40,6 @@
         $(this).addClass("active");
     });
     add_remove ()
-    uploadFile();
     sortIt();
     botsetting_js();
     profile_js();
@@ -48,7 +47,6 @@
     $(document).ajaxComplete(function () {
         /**function place */
         add_remove ()
-        uploadFile();
         sortIt();
         botsetting_js();
         profile_js();
@@ -284,29 +282,7 @@
         }
     }
     // add student page
-    function uploadFile () {
-        if (document.querySelector("#file")) {
-            $("#file").on("change", function (e) {
-                var files = $(this)[0].files;
-                if (files.length >= 2) {
-                    $(".file_label").text(files.length + " Files Ready To Upload");
-                } else {
-                    var ssss = this.parentElement.firstChild.nextSibling ;
-                    console.log(ssss);
-                    var fileName = e.target.value.split("\\").pop();
-                    console.log(fileName);
-                    var Label = $(".file_label");
-                    console.log(Label);
-                    var del = $(".delet");
-                    Label.text("بارگزاری شده");
-                    Label.removeClass("bg-primary");
-                    Label.css("background-color", "#35bb78" , 'important');
-                    del.removeClass("d-none")
-                }
-            });
-        }
 
-    };
     function add_remove () {
          $("#class-div").on("click", ".add-class", function () {
          var newchg = this.parentElement.parentElement.parentElement.firstChild.nextSibling.nextSibling.nextSibling;

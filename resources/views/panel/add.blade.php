@@ -19,12 +19,7 @@
                 </div>
            </div>
            <div class="d-flex justify-content-center m-3 align-items-center uploading">
-
-            <div class="input_file col-lg-6">
-                <label for="file" class="file_label bg-primary text-white rounded shadow-sm text-center"><i class="fa fa-upload" aria-hidden="true"></i> بارگزاری فایل</label>
-                <input id="file" type="file" name="file" multiple />
-            </div>
-            <button type="button" class="btn btn-danger btn-lg m-2 col-lg-6 delet d-none"><i class="fa fa-trash" aria-hidden="true"></i> حذف فایل</button>
+            <input class="form-control" type="file" id="formFile">
 
         </div>
         <div class="d-flex justify-content-center">
@@ -41,13 +36,8 @@
                 </div>
            </div>
            <div class="d-flex justify-content-center m-3 align-items-center uploading">
-
-            <div class="input_file col-lg-6">
-                <label for="file" class="file_label bg-primary text-white rounded shadow-sm text-center"><i class="fa fa-upload" aria-hidden="true"></i> بارگزاری فایل</label>
-                <input id="file" type="file" name="file" multiple />
-            </div>
-            <button type="button" class="btn btn-danger btn-lg m-2 col-lg-6 delet d-none"><i class="fa fa-trash" aria-hidden="true"></i> حذف فایل</button>
-
+            <input class="form-control" type="file" id="formFile">
+           
         </div>
         <div class="d-flex justify-content-center">
         <button type="button" class="btn btn-outline-link m-2 col-lg-7 fw-bold">جزئیات</button>
@@ -63,12 +53,7 @@
                             </div>
                        </div>
                        <div class="d-flex justify-content-center m-3 align-items-center uploading">
-            
-                        <div class="input_file col-lg-6">
-                            <label for="file" class="file_label bg-primary text-white rounded shadow-sm text-center"><i class="fa fa-upload" aria-hidden="true"></i> بارگزاری فایل</label>
-                            <input id="file" type="file" name="file" multiple />
-                        </div>
-                        <button type="button" class="btn btn-danger btn-lg m-2 col-lg-6 delet d-none"><i class="fa fa-trash" aria-hidden="true"></i> حذف فایل</button>
+                        <input class="form-control" type="file" id="formFile">
             
                     </div>
                     <div class="d-flex justify-content-center">
@@ -85,13 +70,7 @@
                             </div>
                        </div>
                        <div class="d-flex justify-content-center m-3 align-items-center uploading">
-            
-                        <div class="input_file col-lg-6">
-                            <label for="file" class="file_label bg-primary text-white rounded shadow-sm text-center"><i class="fa fa-upload" aria-hidden="true"></i> بارگزاری فایل</label>
-                            <input id="file" type="file" name="file" multiple />
-                        </div>
-                        <button type="button" class="btn btn-danger btn-lg m-2 col-lg-6 delet d-none"><i class="fa fa-trash" aria-hidden="true"></i> حذف فایل</button>
-            
+                        <input class="form-control" type="file" id="formFile">
                     </div>
                     <div class="d-flex justify-content-center">
                     <button type="button" class="btn btn-outline-link m-2 col-lg-7 fw-bold">جزئیات</button>
@@ -121,8 +100,8 @@
                             <button type="button" class="btn btn-outline-link m-2 mt-4">راهنمای استفاده</button>
                         </div>
     </div>
-    <div class="d-block text-center m-5">
-        <button type="button" class="btn btn-primary btn-lg m-2">ثبت تغییرات</button>
+    <div class="d-block text-center m-5 col-lg-12">
+        <button type="button" class="btn btn-primary btn-lg m-2 col-lg-4">ثبت تغییرات</button>
     </div>
 </div>
 </form>
