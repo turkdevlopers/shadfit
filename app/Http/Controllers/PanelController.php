@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use Morilog\Jalali\Jalalian;
 use App\Models\User;
+use App\Http\Controllers\PayController as PC;
+use App\Models\ActiveService;
+use App\Models\Payed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -45,6 +48,62 @@ class PanelController extends Controller
     {
         $user = Auth::user();
         return view('panel.profile',compact('user'));
+    }
+    /**
+     * redirect to Payment gateway
+     */
+    public function payinvoice(PC $PC, Request $request){
+        $user = Auth::user();
+        $Service = User::find($user->id)->order->where('satuse','=','0')->first();
+        $PC->Amount = $Service->order_price * 10 ;
+        if ($offcode = $request->off) {
+            $result = $request->get(route('offcheck',[$offcode,$user->id]));
+            if($result->Satuse == 'success'){
+                $PC->Amount = $result->FinalPrice * 10 ;
+            }
+        }
+        $PC->OrderId = $Service->id ;
+        $PC->ReturnUrl = route('verifyPay') ;
+        $PC->MerchantId = 1 ;
+        $PC->TerminalId = $Service->id ;
+
+        switch ($request->mode) {
+            case 'sadad':
+                $result = $PC->SendSadad('');//******************  null  ********************* pay key
+                if ($result) {
+                    return back()->with('failmessage',$result);
+                }
+                break;
+            
+            default:
+            return back()->with('failmessage','درگاه پرداخت باید انتخاب شود');
+            
+                break;
+        }
+    }
+    public function verifypay(PC $PC){
+        $result = $PC->VerifySadad('');//******************  null  ********************* pay key
+        if ($result->Satuse == 'payed') {
+            $payed = Payed::create(
+                [
+                    'order_id' => $result->OrderId,
+                    'SystemTraceNo' => $result->SystemTraceNo,
+                    'RetrivalRefNo' => $result->RetrivalRefNo,
+                ]
+            );
+            $order = Order::find($result->OrderId);
+            $period = $order->package->plan->period;
+            ActiveService::create(
+                [
+                    'start' => strtotime('today') ,
+                    'end' => date('Y-m-d',strtotime("+$period days")),
+                    'payed_id' => $payed->id,
+                ]
+            );
+            $order->satuse = 1;
+            $order->save();
+            return redirect(route('invoice'))->with('message','فاکتور مورد نظر پرداخت شد و سرویس فعال شد');
+        }
     }
      /**
      * Display a listing of the resource.

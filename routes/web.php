@@ -38,4 +38,7 @@ Route::prefix('admin')->middleware("auth")->group(function () {
     Route::get('/invoice/print/{order}', [OrderController::class, 'showprint'])->name("invoicePrint");
     Route::get('/invoice/pdf/{order}', [OrderController::class, 'showpdf'])->name("invoicePdf");
     Route::get('/invoice/delete', [PanelController::class, 'invoiceDelete'])->name("invoiceDelete");
+    Route::post('/invoice/pay', [PanelController::class, 'payinvoice'])->name("payInvoice");
 });
+
+Route::post('/invoice/verifypay', [PanelController::class, 'verifypay'])->name("verifyPay");

@@ -13,8 +13,9 @@ class PayController extends Controller
     public $MerchantId;
     public $TerminalId;
 
-    public function SendSadad(SadadFunctions $Sadad, $paykey)
+    public function SendSadad($paykey)
     {
+        $Sadad = new SadadFunctions();
         $key = $paykey;
         $MerchantId = $this->MerchantId;
         $TerminalId = $this->TerminalId;
@@ -41,11 +42,12 @@ class PayController extends Controller
             $url = "https://sadad.shaparak.ir/VPG/Purchase?Token=$Token";
             header("Location:$url");
         } else {
-            var_dump($result->Description);
+            return $result->Description;
         }
     }
-    public function VerifySadad(SadadFunctions $Sadad, $paykey)
+    public function VerifySadad($paykey)
     {
+        $Sadad = new SadadFunctions();
         $key = $paykey;
         $OrderId = $_POST["OrderId"];
         $Token = $_POST["token"];
@@ -60,16 +62,18 @@ class PayController extends Controller
             $result = $Sadad->CallAPI('https://sadad.shaparak.ir/vpg/api/v0/Advice/Verify', $verifyData);
         }
         if ($result->ResCode != -1 && $result->ResCode == 0) {
-            /*
-     * Save this Data To DataBase
-     * --------------------------
-     * $result->RetrivalRefNo
-     * $result->SystemTraceNo
-     * $result->OrderId
-     */
-            echo "شماره سفارش:" . $OrderId . "<br>" . "شماره پیگیری : " . $result->SystemTraceNo . "<br>" . "شماره مرجع:" .
-                $result->RetrivalRefNo . "<br> اطلاعات بالا را جهت پیگیری های بعدی یادداشت نمایید." . "<br>";
+            return (object) [
+                'Satuse' => 'payed',
+                'SystemTraceNo' => $result->SystemTraceNo,
+                'RetrivalRefNo' => $result->RetrivalRefNo,
+                'OrderId' => $OrderId
+            ];
+            //  "شماره سفارش:" . $OrderId . "<br>" . "شماره پیگیری : " . $result->SystemTraceNo . "<br>" . "شماره مرجع:" .
+            //     $result->RetrivalRefNo . "<br> اطلاعات بالا را جهت پیگیری های بعدی یادداشت نمایید." . "<br>";
         } else
-            echo "تراکنش نا موفق بود در صورت کسر مبلغ از حساب شما حداکثر پس از 72 ساعت مبلغ به حسابتان برمی گردد.";
+            return (object) [
+                'Satuse' => 'notpayed',
+                'Message' => 'تراکنش نا موفق بود در صورت کسر مبلغ از حساب شما حداکثر پس از 72 ساعت مبلغ به حسابتان برمی گردد.',
+            ];
     }
 }
