@@ -30,7 +30,9 @@
           </div>
     </div>
     <div class="bg-light text-center rounded-bottom p-4 shadow-sm">
-        <form action="">
+        <form action="" method="POST">
+            @csrf
+            <input type="hidden" value="sadad" name="mode">
             <div class="d-flex justify-content-between col-lg-12">
                 <div class="user col-lg-4">
                     <div class="name d-flex">
@@ -64,7 +66,7 @@
                         <p class="f-2 text-end">(پین تخفیف، قرار داد های سازمانی،...)</p>
                     </div>
                     <div class="d-flex align-items-baseline col-lg-12">
-                        <input id="off-input" class="form-control" type="text" placeholder="کد تخفیف را وارد کنید"
+                        <input id="off-input" class="form-control" type="text" name="off" placeholder="کد تخفیف را وارد کنید"
                             aria-label="default input example">
                         <button id="off-button" type="button" class="btn btn-sm btn-sm-square btn-primary m-2 col-lg-5"><i
                                 class="fa fa-check-circle h5 mb-0 text-white"></i></button>
@@ -73,7 +75,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center pt-5 col-lg-12">
-                <button type="button" class="btn btn-warning btn-lg m-2 p-3 col-lg-4">
+                <button type="submit" class="btn btn-warning btn-lg m-2 p-3 col-lg-4">
                     <h5 class="mb-0" style="opacity: 0.85;">تایید و پرداخت&nbsp;<i
                             class="fa fa-chevron-circle-left" aria-hidden="true"></i></h5>
                 </button>
